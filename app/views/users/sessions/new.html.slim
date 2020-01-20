@@ -1,0 +1,22 @@
+h2
+  | ログイン
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .field
+    | メールアドレス
+    br
+    = f.email_field :email, autofocus: true, autocomplete: "email", size: "50"
+  .field
+    | パスワード　　　　　　　　
+    = link_to "パスワードを忘れた場合", new_password_path(resource_name)
+    br
+    = f.password_field :password, autocomplete: "current-password", size: "50"
+  - if devise_mapping.rememberable?
+    .field
+      = f.check_box :remember_me
+      | ログインしたままにする
+  .actions
+    = f.submit "ログイン"
+
+  | Radiposを初めて使いますか？
+  br
+  = link_to "Radiposアカウントを作成", new_user_registration_path()

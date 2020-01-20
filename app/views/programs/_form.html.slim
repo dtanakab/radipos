@@ -1,0 +1,27 @@
+= form_with(model: program, local: true) do |form|
+  - if program.errors.any?
+    #error_explanation
+      h2
+        = pluralize(program.errors.count, "error")
+        |  prohibited this program from being saved:
+      ul
+        - program.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :title
+    = form.text_field :title
+  .field
+    = form.label :memo
+    = form.text_area :memo
+  .field
+    = form.label :email
+    = form.text_field :email
+  .field
+    = form.label :cast
+    = form.text_field :cast
+  .field
+    = form.label :date
+    = form.text_field :date
+  .actions
+    = form.submit

@@ -62,7 +62,20 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "radipos_production"
 
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.smtp_settings = {
+    enable_starttls_auto: true,
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "smtp.gmail.com",
+    user_name: "radipos.site@gmail.com",
+    password: ENV["GMAIL"],
+    authentication: "login",
+  }
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
+  host = "radipos.site"
+  config.action_mailer.default_url_options = { host: host }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

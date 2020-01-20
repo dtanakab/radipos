@@ -1,0 +1,25 @@
+h2
+  | アカウントを作成
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    | メールアドレス
+    br
+    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@gmail.com", size: "50"
+  .field
+    | パスワード
+    br
+    = f.password_field :password, autocomplete: "new-password", placeholder: "英数字6文字以上", size: "50"
+  .field
+    | もう一度パスワードを入力してください
+    br
+    = f.password_field :password_confirmation, autocomplete: "new-password", size: "50"
+  .actions
+    = f.submit "アカウントを作成"
+    br
+    br
+    | ログインすることにより、Radiposの利用規約およびプライバシー規約に同意したとみなされます。
+    br
+    br
+    | すでにアカウントをお持ちですか？
+    = link_to "ログイン▶︎", new_user_session_path()

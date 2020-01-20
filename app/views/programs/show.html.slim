@@ -1,0 +1,25 @@
+p#notice
+  = notice
+p
+  strong
+    | Title:
+  = @program.title
+p
+  strong
+    | Memo:
+  = @program.memo
+p
+  strong
+    | Email:
+  = @program.email
+p
+  strong
+    | Cast:
+  = @program.cast
+p
+  strong
+    | Date:
+  = @program.date
+= link_to 'Edit', edit_program_path(@program)
+|  | 
+= link_to 'Back', programs_path
