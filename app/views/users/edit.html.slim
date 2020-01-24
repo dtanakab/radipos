@@ -1,0 +1,59 @@
+h2
+  | アカウント情報の変更
+
+p
+  = link_to "メールアドレスを変更する", edit_user_registration_path(@current_user)
+  br
+  = link_to "パスワードを変更する", edit_user_password_path(current_user)
+
+= form_with(model: @user, local: true) do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@user.errors.count, "error")
+        |  prohibited this program from being saved:
+      ul
+        - @user.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = f.label "ラジオネーム"
+    = f.text_field :radio_name, size: "40"
+  .field
+    = f.label "本名"
+  - if @user.full_name == ""
+      = f.text_field :full_name, placeholder: "山田 太郎", size: "40"
+  - else
+    = @user.full_name
+  .field
+    = f.label "生年月日（年齢）"
+  - if @user.birth_year == "" && @user.birth_month == "" && @user.birth_day == ""
+      = f.select :birth_year, (1960..2010), value: @user.birth_year, :include_blank => "-", :selected => "1990"
+      |  年 
+      = f.select :birth_month, (1..12), value: @user.birth_month, :selected => "1"
+      |  月 
+      = f.select :birth_day, (1..31), value: @user.birth_day, :selected => "1"
+      |  日
+      br
+      |（現在：XX歳）
+  - else
+    = @user.birth_year + "年"
+    = @user.birth_month + "月"
+    = @user.birth_day + "日"
+    = @user_age + "歳"
+  .field
+    = f.label "郵便番号(ハイフン不要)"
+    = f.text_field :postcode, placeholder: "1030027", size: "40"
+  .field
+    = f.label "住所"
+    = f.text_area :address, placeholder: "東京都中央区日本橋1-1-1 メゾン東京101号", rows: "5", size: "40"
+  .actions
+    = f.submit "登録・変更する", data: { confirm: "本名と生年月日は、今後変更ができません。よろしいですか？" }
+
+h4
+  | 本アカウント情報は
+  = @user.radio_name
+  | 様がラジオにメールを送信する際のみに使用され、
+  br
+  | 他の目的で使用されることはありません
+  = link_to "（プライバシーポリシー）"

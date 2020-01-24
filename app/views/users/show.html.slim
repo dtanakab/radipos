@@ -1,0 +1,39 @@
+h1 
+  | アカウント設定
+p
+  = @user.email
+  br
+  - if @user.radio_name == ""
+    | ラジオネームが未設定です。今すぐラジオネームを登録しましょう！
+    br
+    | ラジオのパーソナリティや放送作家さんの印象に残りやすい、読みやすいラジオネームがオススメです！
+    ul
+    | (例) 有名ハガキ職人さんのラジオネーム
+    li
+      |  異次元の豚バラ さん
+    li
+      |  起きてルーシー さん
+    li
+      |  論より証拠の大ライス さん
+    
+    = form_with(model: @user, local: true, data: { confirm: 'Are you sure?' }) do |form|
+      - if @user.errors.any?
+        #error_explanation
+          h2
+            = pluralize(@user.errors.count, "error")
+            |  prohibited this program from being saved:
+          ul
+            - @user.errors.full_messages.each do |message|
+              li
+                = message
+      .field
+        = form.label "ラジオネーム"
+        = form.text_field :radio_name, value: @user.radio_name, placeholder: "未設定です"
+      .actions
+        = form.submit
+  - else
+    | ラジオネーム：
+    = @user.radio_name
+
+  br
+  = link_to "アカウント情報を変更する", edit_user_path

@@ -1,11 +1,11 @@
 p#notice
-  = notice.html_safe
+  = notice.html_safe if notice
 h1
   | 番組一覧：
   = link_to "ログアウト", destroy_user_session_path, method: :delete
 h3
   br
-  = "あなたはログイン中です" if current_user
+  = link_to "ユーザーページを確認する", user_path(current_user.id) if current_user
 table
   thead
     tr
