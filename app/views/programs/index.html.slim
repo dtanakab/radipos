@@ -6,38 +6,6 @@ h1
 h3
   br
   = link_to "ユーザーページを確認する", user_path(current_user.id) if current_user
-table
-  thead
-    tr
-      th
-        | Title
-      th
-        | Memo
-      th
-        | Email
-      th
-        | Cast
-      th
-        | Date
-      th[colspan="3"]
-  tbody
-    - @programs.each do |program|
-      tr
-        td
-          = program.title
-        td
-          = program.memo
-        td
-          = program.email
-        td
-          = program.cast
-        td
-          = program.date
-        td
-          = link_to 'Show', program
-        td
-          = link_to 'Edit', edit_program_path(program)
-        td
-          = link_to 'Destroy', program, method: :delete, data: { confirm: 'Are you sure?' }
+  = render "table", programs: @programs
 br
 = link_to 'New Program', new_program_path

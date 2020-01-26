@@ -1,0 +1,24 @@
+= form_with(model: @corner, url: program_corners_path, local: true) do |f|
+  - if corner.errors.any?
+    #error_explanation
+      h2
+        = pluralize(corner.errors.count, "error")
+        |  prohibited this corner from being saved:
+      ul
+        - corner.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = f.label "コーナータイトル"
+    = f.text_field :title, size:60
+  .field
+    = f.label "メール件名"
+    = f.text_field :subject, size:60
+  .field
+    = f.label "コーナー説明"
+    = f.text_area :introduction, rows:20, cols:60
+  .field
+    = f.label "現在続いているコーナーか"
+    = f.number_field :alive_flag, min:0, max:1, value:1
+  .actions
+    = f.submit

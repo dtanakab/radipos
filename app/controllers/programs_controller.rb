@@ -8,6 +8,7 @@ class ProgramsController < ApplicationController
   end
 
   def show
+    @corners = @program.corners
   end
 
   def new
@@ -47,6 +48,6 @@ class ProgramsController < ApplicationController
     end
 
     def program_params
-      params.require(:program).permit(:title, :memo, :email, :cast, :date)
+      params.require(:program).permit(:title, :memo, :email, :cast, :day, :key_station, :local_station, :starts_at, :ends_at, :hp)
     end
 end

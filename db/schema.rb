@@ -10,16 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_24_075951) do
+ActiveRecord::Schema.define(version: 2020_01_26_074845) do
+
+  create_table "corners", force: :cascade do |t|
+    t.string "title"
+    t.string "subject"
+    t.text "introduction"
+    t.integer "alive_flag"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "program_id"
+    t.index ["program_id"], name: "index_corners_on_program_id"
+  end
 
   create_table "programs", force: :cascade do |t|
     t.string "title"
     t.text "memo"
     t.string "email"
     t.string "cast"
-    t.string "date"
+    t.string "day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "key_station"
+    t.string "local_station"
+    t.time "starts_at"
+    t.time "ends_at"
+    t.string "hp"
   end
 
   create_table "users", force: :cascade do |t|

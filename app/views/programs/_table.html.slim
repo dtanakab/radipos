@@ -1,0 +1,21 @@
+table
+  thead
+    tr
+      th 放送日
+      th 放送時間
+      th キーステーション
+      th 番組タイトル
+      th パーソナリティ
+  tbody
+    - programs.each do |program|
+      tr
+        td
+          = "毎週" + program.day + "日"
+        td
+          = program.airtime
+        td
+          = program.key_station
+        td
+          = link_to program.title, program_path(program)
+        td
+          = program.cast

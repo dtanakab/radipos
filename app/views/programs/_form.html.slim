@@ -1,4 +1,4 @@
-= form_with(model: program, local: true) do |form|
+= form_with(model: program, local: true) do |f|
   - if program.errors.any?
     #error_explanation
       h2
@@ -9,19 +9,33 @@
           li
             = message
   .field
-    = form.label :title
-    = form.text_field :title
+    = f.label "キーステーション"
+    =  f.select :key_station, ["ニッポン放送", "TBSラジオ", "文化放送"]
   .field
-    = form.label :memo
-    = form.text_area :memo
+    = f.label "ローカル局"
+    =  f.select :local_station, ["ニッポン放送", "TBSラジオ", "文化放送"]
   .field
-    = form.label :email
-    = form.text_field :email
+    = f.label "番組タイトル"
+    = f.text_field :title
   .field
-    = form.label :cast
-    = form.text_field :cast
+    = f.label "番組概要"
+    = f.text_area :memo
   .field
-    = form.label :date
-    = form.text_field :date
+    = f.label "番組メールアドレス"
+    = f.email_field :email
+  .field
+    = f.label "キャスト"
+    = f.text_field :cast
+  .field
+    = f.label "放送曜日"
+    = f.select :day, ["月曜", "火曜", "水曜", "木曜", "金曜", "土曜", "日曜"]
+  .field
+    = f.label "放送時刻"
+    = f.time_select :starts_at, time_separator: "：", minute_step: 15
+    | ~
+    = f.time_select :ends_at, time_separator: "：", minute_step: 15
+  .field
+    = f.label "番組ホームページ"
+    = f.text_field :hp
   .actions
-    = form.submit
+    = f.submit

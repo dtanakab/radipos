@@ -2,24 +2,47 @@ p#notice
   = notice
 p
   strong
-    | Title:
+    | キー局:
+  = @program.key_station
+p
+  strong
+    | ローカル局:
+  = @program.local_station
+p
+  strong
+    | 曜日:
+  = @program.day
+p
+  strong
+    | 放送時間:
+  = @program.airtime
+p
+  strong
+    | タイトル:
   = @program.title
 p
   strong
-    | Memo:
+    | 番組ホームページ：
+    a href=@program.hp target="_blank" #{@program.hp}
+p
+  strong
+    | 番組概要:
   = @program.memo
 p
   strong
-    | Email:
+    | 投稿用メールアドレス:
   = @program.email
 p
   strong
-    | Cast:
+    | キャスト:
   = @program.cast
+
 p
-  strong
-    | Date:
-  = @program.date
+  | コーナー一覧：
+  = render "corners/index", corners: @corners
+
+= link_to "コーナーを追加する", new_program_corner_path(@program)
+|  | 
 = link_to 'Edit', edit_program_path(@program)
 |  | 
 = link_to 'Back', programs_path
