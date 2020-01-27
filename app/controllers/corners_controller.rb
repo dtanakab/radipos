@@ -12,6 +12,7 @@ class CornersController < ApplicationController
   end
 
   def edit
+    @program = @corner.program
   end
 
   def create
@@ -26,7 +27,7 @@ class CornersController < ApplicationController
 
   def update
     if @corner.update(corner_params)
-      redirect_to @corner, notice: "コーナーが更新されました"
+      redirect_to @corner.program, notice: "コーナーが更新されました"
     else
       render :edit
     end

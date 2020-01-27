@@ -1,0 +1,9 @@
+= "'#{params[:word]}'の検索結果"
+
+= form_tag search_results_path, method: "get" do
+  = text_field_tag "word", params[:word], placeholder: "番組名、キャストなどで検索", size: 40
+  button(type="submit")
+
+= paginate @search_results, position: "top"
+= render "programs/table", programs: @search_results if @search_results.any?
+= paginate @search_results, position: "bottom"

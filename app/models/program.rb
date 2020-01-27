@@ -14,4 +14,7 @@ class Program < ApplicationRecord
     airtime_start[0].to_s + "時" + airtime_start[1] + "分" + "〜" +
     airtime_end[0].to_s + "時" + airtime_end[1] + "分"
   end
+  def self.search(word)
+    Program.ransack(title_cont: word).result
+  end
 end

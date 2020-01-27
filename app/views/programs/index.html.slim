@@ -5,7 +5,14 @@ h1
   = link_to "ログアウト", destroy_user_session_path, method: :delete
 h3
   br
-  = link_to "ユーザーページを確認する", user_path(current_user.id) if current_user
+  = "Radipos経由のラジオ投稿数：累計" + Post.count.to_s + "投稿！"
+  br
+  = form_tag search_results_path, method: "get" do
+    = text_field_tag "word", params[:word], placeholder: "番組名、キャストなどで検索", size: 40
+    button(type="submit")
+  br
   = render "table", programs: @programs
+br
+= link_to "ユーザーページを確認する", user_path(current_user.id) if current_user
 br
 = link_to 'New Program', new_program_path

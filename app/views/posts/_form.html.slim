@@ -1,7 +1,12 @@
 = form_with(model: Post, url:posts_path, local: true) do |f|
+  | 投稿メール（件名と内容以外は、アカウント情報などから自動で入力されます）
+  br
   .field
-    = f.label "ネタ内容"
-    = f.text_area :content, rows: 20, cols: 60
+    = f.label "メール件名（変更必要がある場合のみ、変更ください）"
+    = f.text_field :subject, value: corner.subject, size: 60
+  .field
+    = f.label "投稿内容"
+    = f.text_area :content, rows: 20, cols: 60, placeholder: corner.introduction
     = f.hidden_field :corner_id, value: corner.id
   .actions
     = f.submit "送信する"

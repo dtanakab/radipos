@@ -34,6 +34,22 @@ p
   - else
     | ラジオネーム：
     = @user.radio_name
+p
+  | 過去の投稿（
+  = @user.posts.count.to_s + "件）"
+  ul
+    - @user.posts.each do |post|
+      li
+        = link_to post.corner.program.title, post.corner.program
+        ul
+          li
+            = post.corner.title
+          li
+            = post.content
+          li
+            = post.created_at.strftime("%F　%T")
 
   br
   = link_to "アカウント情報を変更する", edit_user_path
+  br
+  = link_to "番組一覧に戻る", root_path

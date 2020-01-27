@@ -26,13 +26,17 @@ p
   - else
     = @user.full_name
   .field
+    = f.label "性別"
+    = f.select :gender, ["男性", "女性", "無回答"], selected: @user.gender ? @user.gender : "無回答"
+
+  .field
     = f.label "生年月日（年齢）"
   - if @user.birth_year == "" && @user.birth_month == "" && @user.birth_day == ""
-      = f.select :birth_year, (1960..2010), value: @user.birth_year, :include_blank => "-", :selected => "1990"
+      = f.select :birth_year, (1960..2010), :selected => "1990"
       |  年 
-      = f.select :birth_month, (1..12), value: @user.birth_month, :selected => "1"
+      = f.select :birth_month, (1..12), :selected => "1"
       |  月 
-      = f.select :birth_day, (1..31), value: @user.birth_day, :selected => "1"
+      = f.select :birth_day, (1..31), :selected => "1"
       |  日
       br
       |（現在：XX歳）
@@ -40,7 +44,10 @@ p
     = @user.birth_year + "年"
     = @user.birth_month + "月"
     = @user.birth_day + "日"
-    = @user_age + "歳"
+    = @user.age + "歳"
+  .field
+   = f.label "電話番号(ハイフン不要)"
+   = f.text_field :tel
   .field
     = f.label "郵便番号(ハイフン不要)"
     = f.text_field :postcode, placeholder: "1030027", size: "40"

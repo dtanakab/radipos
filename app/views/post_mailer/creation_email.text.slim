@@ -13,6 +13,9 @@
 = "\n"
 | 本名：
 = @user.full_name
+| (
+= @user.age + "歳 " + @user.gender
+| )
 = "\n"
 | 電話番号：
-| 000-0000-0000
+= @user.tel
