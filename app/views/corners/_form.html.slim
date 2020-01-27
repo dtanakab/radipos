@@ -1,4 +1,4 @@
-= form_with(model: @corner, url: program_corners_path, local: true) do |f|
+= form_with(model: @corner, local: true) do |f|
   - if corner.errors.any?
     #error_explanation
       h2
@@ -20,5 +20,7 @@
   .field
     = f.label "現在続いているコーナーか"
     = f.number_field :alive_flag, min:0, max:1, value:1
+
+    = f.hidden_field :program_id, value: @program.id
   .actions
     = f.submit

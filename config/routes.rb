@@ -7,9 +7,8 @@ Rails.application.routes.draw do
     confirmations: "users/confirmations"
   }
   resources :users, only: %i[show edit update]
-  resources :programs, only: %i[show index edit update new create] do
-    resources :corners, only: %i[new create]
-  end
-  resources :corners, only: %i[show edit update]
+  resources :programs, only: %i[show index edit update new create]
+  resources :corners, only: %i[new create show edit update]
+  resources :posts, only: %i[create]
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

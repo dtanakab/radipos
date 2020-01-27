@@ -11,7 +11,8 @@ p
 p
   strong
     | 曜日:
-  = @program.day
+  | 毎週
+  = @program.day + "日"
 p
   strong
     | 放送時間:
@@ -38,10 +39,11 @@ p
   = @program.cast
 
 p
-  | コーナー一覧：
+  strong
+    | コーナー（現在継続中）一覧：
   = render "corners/index", corners: @corners
 
-= link_to "コーナーを追加する", new_program_corner_path(@program)
+= link_to "コーナーを追加する", new_corner_path(program_id: @program)
 |  | 
 = link_to 'Edit', edit_program_path(@program)
 |  | 

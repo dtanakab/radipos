@@ -2,7 +2,7 @@
 
 class Program < ApplicationRecord
   has_many :corners, dependent: :destroy
-  
+
   def airtime
     airtime_start = [ starts_at.strftime("%k").to_i, starts_at.strftime("%M")]
     airtime_end = [ ends_at.strftime("%k").to_i, ends_at.strftime("%M")]

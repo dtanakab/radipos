@@ -2,3 +2,7 @@ ul
   - corners.each do |corner|
     li
       = link_to corner.title, corner
+      br
+      = corner.introduction
+      br
+      = render "posts/form", corner: corner

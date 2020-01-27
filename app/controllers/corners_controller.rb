@@ -2,9 +2,9 @@
 
 class CornersController < ApplicationController
   before_action :set_corner, only: [:edit, :show, :update, :destroy]
-  before_action :set_program, only: [:new, :create]
 
   def new
+    @program = Program.find(params[:program_id])
     @corner = @program.corners.new
   end
 
@@ -15,10 +15,10 @@ class CornersController < ApplicationController
   end
 
   def create
-    @corner = @program.corners.new(corner_params)
+    @corner = Corner.new(corner_params)
 
     if @corner.save
-      redirect_to @program, notice: "新しいコーナーが追加されました"
+      redirect_to @corner.program, notice: "新しいコーナーが追加されました"
     else
       render :new
     end
@@ -43,11 +43,7 @@ class CornersController < ApplicationController
       @corner = Corner.find(params[:id])
     end
 
-    def set_program
-      @program = Program.find(params[:program_id])
-    end
-
     def corner_params
-      params.require(:corner).permit(:title, :subject, :introduction, :alive_flag)
+      params.require(:corner).permit(:title, :subject, :introduction, :alive_flag, :program_id)
     end
 end

@@ -1,0 +1,7 @@
+= form_with(model: Post, url:posts_path, local: true) do |f|
+  .field
+    = f.label "ネタ内容"
+    = f.text_area :content, rows: 20, cols: 60
+    = f.hidden_field :corner_id, value: corner.id
+  .actions
+    = f.submit "送信する"
