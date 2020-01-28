@@ -1,11 +1,5 @@
 h2
   | アカウント情報の変更
-
-p
-  = link_to "メールアドレスを変更する", edit_user_registration_path(@current_user)
-  br
-  = link_to "パスワードを変更する", edit_user_password_path(current_user)
-
 = form_with(model: @user, local: true) do |f|
   - if @user.errors.any?
     #error_explanation
@@ -30,8 +24,8 @@ p
     = f.select :gender, ["男性", "女性", "無回答"], selected: @user.gender ? @user.gender : "無回答"
 
   .field
-    = f.label "生年月日（年齢）"
-  - if @user.birth_year == "" && @user.birth_month == "" && @user.birth_day == ""
+    = f.label "年齢"
+  - if @user.birth_year == nil && @user.birth_month == nil && @user.birth_day == nil
       = f.select :birth_year, (1960..2010), :selected => "1990"
       |  年 
       = f.select :birth_month, (1..12), :selected => "1"
@@ -41,9 +35,6 @@ p
       br
       |（現在：XX歳）
   - else
-    = @user.birth_year + "年"
-    = @user.birth_month + "月"
-    = @user.birth_day + "日"
     = @user.age + "歳"
   .field
    = f.label "電話番号(ハイフン不要)"

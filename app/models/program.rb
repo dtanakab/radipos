@@ -2,6 +2,7 @@
 
 class Program < ApplicationRecord
   has_many :corners, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def airtime
     airtime_start = [ starts_at.strftime("%k").to_i, starts_at.strftime("%M")]
@@ -15,6 +16,6 @@ class Program < ApplicationRecord
     airtime_end[0].to_s + "時" + airtime_end[1] + "分"
   end
   def self.search(word)
-    Program.ransack(title_cont: word).result
+    Program.ransack(title_or_cast_cont: word).result
   end
 end

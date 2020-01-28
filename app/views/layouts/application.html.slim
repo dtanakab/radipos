@@ -9,4 +9,6 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag('radipos_favicon.ico')
   body
+    h1
+      = link_to "Radipos", root_path
     = yield

@@ -6,6 +6,7 @@ table
       th キーステーション
       th 番組タイトル
       th パーソナリティ
+      th お気に入り
   tbody
     - programs.each do |program|
       tr
@@ -19,3 +20,5 @@ table
           = link_to program.title, program_path(program)
         td
           = program.cast
+        td
+          = render "programs/favorite", program: program

@@ -3,6 +3,10 @@
 class UsersController < ApplicationController
   before_action :set_user
   def show
+    @favorite_programs = []
+    current_user.favorites.each do | favorite |
+      @favorite_programs << Program.find(favorite.program_id)
+    end
     if @user.radio_name != ""
       @temp_name = @user.radio_name
     else
@@ -24,7 +28,7 @@ class UsersController < ApplicationController
 
   private
     def set_user
-      @user = current_user
+      @user = User.find(params[:id])
     end
     def user_params
       params.require(:user).permit(

@@ -1,9 +1,16 @@
-= "'#{params[:word]}'の検索結果"
+h2
+  = "'#{params[:word]}'の検索結果　"
+  = link_to "アカウント情報", user_path(current_user.id) if current_user
+  |  | 
+  = link_to "ログアウト", destroy_user_session_path, method: :delete
 
-= form_tag search_results_path, method: "get" do
-  = text_field_tag "word", params[:word], placeholder: "番組名、キャストなどで検索", size: 40
-  button(type="submit")
-
+= form_tag(search_results_path, method: "get") do
+  = text_field_tag "word", params[:word], placeholder: "番組名、キャストで検索", size: 30
+  = submit_tag "検索", name: nil
 = paginate @search_results, position: "top"
 = render "programs/table", programs: @search_results if @search_results.any?
 = paginate @search_results, position: "bottom"
+br
+= link_to "ユーザーページを確認する", user_path(current_user.id) if current_user
+br
+= link_to 'New Program', new_program_path

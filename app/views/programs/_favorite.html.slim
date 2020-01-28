@@ -1,0 +1,8 @@
+- if current_user && current_user.favorites.find_by(program_id: program.id)
+  = form_with(model:current_user.favorites.find_by(program_id: program.id), method: :delete) do |f|
+    = f.hidden_field :program_id, value:program.id
+    = f.submit "お気に入りから削除", name: nil
+- else
+  = form_with(model:Favorite, url: favorites_path) do |f|
+    = f.hidden_field :program_id, value:program.id
+    = f.submit "お気に入りに追加", name: nil

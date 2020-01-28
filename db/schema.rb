@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_27_073540) do
+ActiveRecord::Schema.define(version: 2020_01_28_033939) do
 
   create_table "corners", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_01_27_073540) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "program_id"
     t.index ["program_id"], name: "index_corners_on_program_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "program_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["program_id"], name: "index_favorites_on_program_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -74,6 +83,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_073540) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "programs"
+  add_foreign_key "favorites", "users"
   add_foreign_key "posts", "corners"
   add_foreign_key "posts", "users"
 end

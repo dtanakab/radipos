@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :posts, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def age
     birthday = Date.new(self.birth_year.to_i, self.birth_month.to_i, self.birth_day.to_i)

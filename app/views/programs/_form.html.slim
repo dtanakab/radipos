@@ -10,10 +10,10 @@
             = message
   .field
     = f.label "キーステーション"
-    =  f.select :key_station, ["ニッポン放送", "TBSラジオ", "文化放送"]
+    = f.select :key_station, ["ニッポン放送", "TBSラジオ", "文化放送"]
   .field
     = f.label "ローカル局"
-    =  f.select :local_station, ["ニッポン放送", "TBSラジオ", "文化放送"]
+    = f.select :local_station, ["ニッポン放送", "TBSラジオ", "文化放送"]
   .field
     = f.label "番組タイトル"
     = f.text_field :title
