@@ -1,10 +1,8 @@
 table
   thead
     tr
-      th 放送日
-      th 放送時間
-      th キーステーション
-      th 番組タイトル
+      th 放送日時
+      th 放送局/番組タイトル
       th パーソナリティ
       th お気に入り
   tbody
@@ -12,12 +10,14 @@ table
       tr
         td
           = "毎週" + program.day + "日"
-        td
+          br
           = program.airtime
         td
-          = program.key_station
-        td
+          = program.key_station + "："
+          br
           = link_to program.title, program_path(program)
+          br
+          = image_tag program.image, size: "200x100" if program.image.attached?
         td
           = program.cast
         td

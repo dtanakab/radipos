@@ -1,5 +1,8 @@
 p#notice
   = notice
+h2 
+  = @program.title
+= image_tag @program.image, size: "400x200" if @program.image.attached?
 p
   strong
     | キー局:
@@ -17,10 +20,6 @@ p
   strong
     | 放送時間:
   = @program.airtime
-p
-  strong
-    | タイトル:
-  = @program.title
 p
   strong
     | 番組ホームページ：

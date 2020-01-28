@@ -3,6 +3,7 @@
 class Program < ApplicationRecord
   has_many :corners, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_one_attached :image
 
   def airtime
     airtime_start = [ starts_at.strftime("%k").to_i, starts_at.strftime("%M")]
