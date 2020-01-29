@@ -2,7 +2,7 @@ p#notice
   = notice
 h2 
   = @program.title
-= image_tag @program.image, size: "400x200" if @program.image.attached?
+= image_tag @program.image, size: "600x300" if @program.image.attached?
 p
   strong
     | キー局:
@@ -27,7 +27,7 @@ p
 p
   strong
     | 番組概要:
-  = @program.memo
+  = simple_format(@program.memo)
 p
   strong
     | 投稿用メールアドレス:
@@ -36,7 +36,6 @@ p
   strong
     | キャスト:
   = @program.cast
-
 p
   strong
     | コーナー（現在継続中）一覧：

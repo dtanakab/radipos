@@ -3,6 +3,4 @@ ul
     - if corner.alive_flag == 1
       li
         = link_to corner.title, edit_corner_path(corner)
-        ul
-          li
-            = render "posts/form", corner: corner
+        = render "posts/form", corner: corner

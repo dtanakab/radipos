@@ -20,6 +20,9 @@
   .field
     = f.label "現在続いているコーナーか"
     = f.number_field :alive_flag, min:0, max:1, value:1
+  .field
+    = f.label "本サイトから投稿可能か"
+    = f.text_area :unpostable_reason, rows:10, cols:60
 
     = f.hidden_field :program_id, value: @program.id
   .actions

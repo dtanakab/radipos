@@ -76,3 +76,4 @@ gem "html2slim"
 gem "dotenv-rails"
 gem "chronic"
 gem "ransack"
+gem 'rinku'

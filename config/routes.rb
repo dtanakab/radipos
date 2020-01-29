@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   resources :corners, only: %i[new create show edit update]
   resources :posts, only: %i[create]
   resources :favorites, only: %i[create destroy]
+  resource :privacy, only: %i[show]
+  resource :term, only: %i[show]
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

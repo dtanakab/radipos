@@ -45,6 +45,6 @@ class CornersController < ApplicationController
     end
 
     def corner_params
-      params.require(:corner).permit(:title, :subject, :introduction, :alive_flag, :program_id)
+      params.require(:corner).permit(:title, :subject, :introduction, :alive_flag, :program_id, :unpostable_reason)
     end
 end

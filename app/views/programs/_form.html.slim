@@ -19,7 +19,7 @@
     = f.text_field :title
   .field
     = f.label "番組概要"
-    = f.text_area :memo
+    = f.text_area :memo, rows: 10, cols: 50
   .field
     = f.label "番組メールアドレス"
     = f.email_field :email
