@@ -5,12 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
-  def age
-    if self.birth_year && self.birth_month && self.birth_day
-      birthday = Date.new(self.birth_year.to_i, self.birth_month.to_i, self.birth_day.to_i)
-      age = (Date.today.strftime("%Y%m%d").to_i - birthday.strftime("%Y%m%d").to_i) / 10000
-      age.to_s
-    end
-  end
+  has_one :setting, dependent: :destroy
 end

@@ -1,29 +1,32 @@
-| ラジオネーム：
-= user.radio_name
-br
-| 本名：
-= user.full_name
-| （
-= user.age
-| 歳  
-= user.gender
-| ）
-br
-| 電話番号：
-= user.tel
-br
-| 郵便番号：
-= user.postcode
-br
-| 住所：
-= user.address
-br
 | メールアドレス：
 = user.email
-h4
-  | 本アカウント情報は
-  = @user.radio_name
-  | 様がラジオにメールを送信する際のみに使用され、
+br
+| ラジオメール通常送付イメージ：
+br
+= user.post_mail_setting
+
+br
+- if user.full_name != ""
+  | 本名：
+  = user.full_name
   br
-  | 他の目的で使用されることはありません
-  = link_to "（プライバシーポリシー）", privacy_path
+- if user.about_age != ""
+  | 年齢区分：
+  = user.about_age
+  br
+- if user.gender != ""
+  | 性別：
+  = user.gender
+  br
+- if user.tel != ""
+  | 電話番号：
+  = user.tel
+  br
+- if user.postcode != ""
+  | 〒
+  = user.postcode
+  br
+- if user.address != ""
+  | 住所：
+  = user.address
+  br

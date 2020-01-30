@@ -1,5 +1,5 @@
 h2
-  | アカウント情報の変更
+  | アカウント情報の登録・変更
 = form_with(model: @user, local: true) do |f|
   - if @user.errors.any?
     #error_explanation
@@ -10,47 +10,59 @@ h2
         - @user.errors.full_messages.each do |message|
           li
             = message
-  .field
-    = f.label "ラジオネーム"
-    = f.text_field :radio_name, size: "40"
-  .field
-    = f.label "本名"
-  - if @user.full_name == ""
-      = f.text_field :full_name, placeholder: "山田 太郎", size: "40"
-  - else
-    = @user.full_name
-  .field
-    = f.label "性別"
-    = f.select :gender, ["男性", "女性", "無回答"], selected: @user.gender ? @user.gender : "無回答"
 
   .field
-    = f.label "年齢"
-  - if @user.birth_year == nil && @user.birth_month == nil && @user.birth_day == nil
-      = f.select :birth_year, (1960..2010), :selected => "1990"
-      |  年 
-      = f.select :birth_month, (1..12), :selected => "1"
-      |  月 
-      = f.select :birth_day, (1..31), :selected => "1"
-      |  日
-      br
-      |（現在：XX歳）
-  - else
-    = @user.age + "歳"
+    strong
+      = f.label "ラジオネーム（必須）"
+    = f.text_field :radio_name, size: "40", required: true, placeholder: "印象に残りやすいネームがオススメです"
+  p
+    | 以下項目については、未入力・無回答の場合、
+    br
+    | ラジオメールに記載されることはありません。
+
   .field
-   = f.label "電話番号(ハイフン不要)"
-   = f.text_field :tel
+    strong
+      = f.label "ラジオメール記載範囲通常設定"
+    | （投稿するラジオメールごとにも、記載有無の選択が可能です。）
+    br
+    = f.select :post_mail_setting, @post_mail_settings
+
   .field
-    = f.label "郵便番号(ハイフン不要)"
-    = f.text_field :postcode, placeholder: "1030027", size: "40"
+    strong
+      = f.label "本名"
+    = f.text_field :full_name, placeholder: "山田 太郎", size: "40"
+
   .field
-    = f.label "住所"
+    strong
+      = f.label "年齢区分"
+    = f.select :about_age, @age_choices, prompt: "無回答"
+
+  .field
+    storng
+      = f.label "性別"
+    = f.select :gender, ["男性", "女性"], prompt: "無回答"
+                                            
+  .field
+    strong
+      = f.label "電話番号"
+    = f.text_field :tel, placeholder: "090-1234-5678", size: "40"
+
+  .field
+    strong
+      = f.label "郵便番号"
+    = f.text_field :postcode, placeholder: "103-0027", size: "40"
+
+  .field
+    strong
+      = f.label "住所"
     = f.text_area :address, placeholder: "東京都中央区日本橋1-1-1 メゾン東京101号", rows: "5", size: "40"
+
   .actions
-    = f.submit "登録・変更する", data: { confirm: "本名と生年月日は、今後変更ができません。よろしいですか？" }
+    = f.submit "登録・変更する"
 
 h4
   | 本アカウント情報は
-  = @user.radio_name
+  = @user.email
   | 様がラジオにメールを送信する際のみに使用され、
   br
   | 他の目的で使用されることはありません

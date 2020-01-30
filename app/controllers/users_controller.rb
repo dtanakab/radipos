@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @age_choices = ["中学生", "高校生", "大学生", "20代前半", "20代後半", "30代前半", "30代後半", "40代", "50代", "60代"]
+    @post_mail_settings = ["ラジオネームのみ", "ラジオネーム+年齢性別のみ", "本名や住所含む全てを記載"]
   end
 
   def update
@@ -32,7 +34,7 @@ class UsersController < ApplicationController
     end
     def user_params
       params.require(:user).permit(
-        :radio_name, :full_name, :address, :postcode, :email, :birth_year, :birth_month, :birth_day, :tel, :gender
+        :radio_name, :full_name, :address, :postcode, :email, :about_age, :tel, :gender, :post_mail_setting
       )
     end
 end

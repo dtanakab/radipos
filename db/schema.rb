@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_29_020813) do
+ActiveRecord::Schema.define(version: 2020_01_30_045817) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_020813) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "post_mail_setting"
     t.index ["corner_id"], name: "index_posts_on_corner_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -85,7 +86,6 @@ ActiveRecord::Schema.define(version: 2020_01_29_020813) do
     t.string "encrypted_password", default: "", null: false
     t.string "radio_name", default: ""
     t.string "full_name"
-    t.string "birth_day"
     t.string "postcode"
     t.text "address"
     t.string "reset_password_token"
@@ -97,10 +97,10 @@ ActiveRecord::Schema.define(version: 2020_01_29_020813) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "birth_year"
-    t.string "birth_month"
     t.string "gender"
     t.string "tel"
+    t.string "about_age"
+    t.string "post_mail_setting"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

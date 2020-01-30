@@ -8,6 +8,8 @@ h2
     = link_to "ログアウト", destroy_user_session_path, method: :delete
   - else
     = link_to "ログイン", new_user_session_path
+    | |
+    = linl_to "サインアップ", new_user_registration_path
 
 h3
   br

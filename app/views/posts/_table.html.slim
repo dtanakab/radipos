@@ -1,0 +1,16 @@
+p
+  ul
+    - posts.each do |post|
+      li
+        = link_to post.corner.program.title, post.corner.program
+        ul
+          li
+            | コーナー名：
+            = post.corner.title
+          li
+            | 投稿内容：「
+            = post.content
+            | 」
+          li
+            | 投稿日時：
+            = post.created_at.strftime("%F　%T")

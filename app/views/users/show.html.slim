@@ -3,37 +3,16 @@ h2
   = link_to "ログアウト", destroy_user_session_path, method: :delete
 
 - if @user.radio_name == ""
-  | ラジオネームが未設定です。今すぐラジオネームを登録しましょう！
+  | ラジオネームが未設定です。
   br
-  | ラジオのパーソナリティや放送作家さんの印象に残りやすい、読みやすいラジオネームがオススメです！
-  ul
-  | (例) 有名ハガキ職人さんのラジオネーム
-  li
-    |  異次元の豚バラ さん
-  li
-    |  起きてルーシー さん
-  li
-    |  論より証拠の大ライス さん
-  
-  = form_with(model: @user, local: true, data: { confirm: 'Are you sure?' }) do |f|
-    - if @user.errors.any?
-      #error_explanation
-        h2
-          = pluralize(@user.errors.count, "error")
-          |  prohibited this program from being saved:
-        ul
-          - @user.errors.full_messages.each do |message|
-            li
-              = message
-    .field
-      = f.text_field :radio_name, value: @user.radio_name, placeholder: "未設定です"
-      = f.submit "ラジオネームを設定する"
+  | 今すぐラジオネームを登録しましょう！
+  br
+  = link_to "アカウント情報を登録する", edit_user_path
 - else
   = render "profile", user: current_user
-= link_to "アカウント情報を変更する", edit_user_path
+  = link_to "アカウント情報を変更する", edit_user_path
 br
 = link_to "メールアドレス/パスワードを変更する", edit_user_registration_path
-
 
 h2
   | お気に入りの番組一覧
@@ -41,21 +20,7 @@ h2
 h2
   | 過去の投稿（
   = @user.posts.count.to_s + "件）"
-p
-  ul
-    - @user.posts.each do |post|
-      li
-        = link_to post.corner.program.title, post.corner.program
-        ul
-          li
-            | コーナー名：
-            = post.corner.title
-          li
-            | 投稿内容：「
-            = post.content
-            | 」
-          li
-            | 投稿日時：
-            = post.created_at.strftime("%F　%T")
+= render "posts/table", posts: @user.posts
+
 br
 = link_to "退会する", user_registration_path, data: { confirm: "Radiposを退会し、本当にアカウントを削除しますか?" }, method: :delete

@@ -10,6 +10,8 @@
       = f.label "投稿内容"
       = f.text_area :content, rows: 20, cols: 60, placeholder: corner.introduction
       = f.hidden_field :corner_id, value: corner.id
+    .field
+      = f.select :post_mail_setting, ["ラジオネームのみ", "ラジオネーム+年齢性別のみ", "本名や住所含む全てを記載"], selected: current_user.post_mail_setting
     .actions
       = f.submit "送信する"
 - else 
