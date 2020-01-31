@@ -1,7 +1,7 @@
 p#notice
   = notice.html_safe if notice
 h2
-  | 番組一覧　
+  | 人気おすすめ番組一覧　
   = link_to "アカウント情報", user_path(current_user.id) if current_user
   |  | 
   - if current_user
@@ -12,14 +12,17 @@ h2
     = linl_to "サインアップ", new_user_registration_path
 
 h3
+  = "掲載、投稿可能ラジオ番組数累計200以上！"
+  br
   br
   = "Radipos経由のラジオ投稿数：累計" + Post.count.to_s + "投稿！"
   br
-  = form_tag(search_results_path, method: "get") do
-    = text_field_tag "word", params[:word], placeholder: "番組名、キャストで検索", size: 40
-    = submit_tag "検索", name: nil
-  br
-  = render "table", programs: @programs
+= form_tag(search_results_path, method: "get") do
+  = text_field_tag "word", params[:word], placeholder: "番組名、キャストで検索", size: 40
+  = submit_tag "検索", name: nil
+br
+= render "table", programs: @programs
+= paginate @programs
 
 br
 = link_to 'New Program', new_program_path

@@ -4,7 +4,8 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: [:show, :edit, :update, :destroy]
 
   def index
-    @programs = Program.all
+    image_attached_programs = Program.all.select { |program| program.image.attached? }
+    @programs = Kaminari.paginate_array(image_attached_programs).page(params[:page])
   end
 
   def show
@@ -48,6 +49,6 @@ class ProgramsController < ApplicationController
     end
 
     def program_params
-      params.require(:program).permit(:title, :memo, :email, :cast, :day, :key_station, :local_station, :starts_at, :ends_at, :hp, :image)
+      params.require(:program).permit(:title, :memo, :email, :cast, :wday, :station, :starts_at, :ends_at, :hp, :image)
     end
 end

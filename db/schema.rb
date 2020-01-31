@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_045817) do
+ActiveRecord::Schema.define(version: 2020_01_31_071156) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,11 +71,10 @@ ActiveRecord::Schema.define(version: 2020_01_30_045817) do
     t.text "memo"
     t.string "email"
     t.string "cast"
-    t.string "day"
+    t.integer "wday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "key_station"
-    t.string "local_station"
+    t.string "station"
     t.time "starts_at"
     t.time "ends_at"
     t.string "hp"

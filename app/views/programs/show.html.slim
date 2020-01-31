@@ -5,20 +5,12 @@ h2
 = image_tag @program.image, size: "600x300" if @program.image.attached?
 p
   strong
-    | キー局:
-  = @program.key_station
+    | 放送局:
+  = @program.station
 p
   strong
-    | ローカル局:
-  = @program.local_station
-p
-  strong
-    | 曜日:
-  | 毎週
-  = @program.day + "日"
-p
-  strong
-    | 放送時間:
+    | 放送日時: 
+  = "毎週" + @program.wday_str + " "
   = @program.airtime
 p
   strong

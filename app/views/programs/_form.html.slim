@@ -9,11 +9,8 @@
           li
             = message
   .field
-    = f.label "キーステーション"
-    = f.select :key_station, ["ニッポン放送", "TBSラジオ", "文化放送"]
-  .field
-    = f.label "ローカル局"
-    = f.select :local_station, ["ニッポン放送", "TBSラジオ", "文化放送"]
+    = f.label "放送局"
+    = f.select :station, ["ニッポン放送", "TBSラジオ", "文化放送"]
   .field
     = f.label "番組タイトル"
     = f.text_field :title
@@ -27,8 +24,8 @@
     = f.label "キャスト"
     = f.text_field :cast
   .field
-    = f.label "放送曜日"
-    = f.select :day, ["月曜", "火曜", "水曜", "木曜", "金曜", "土曜", "日曜"]
+    = f.label "放送曜日（日曜日=0）"
+    = f.number_field :wday
   .field
     = f.label "放送時刻"
     = f.time_select :starts_at, time_separator: "：", minute_step: 15

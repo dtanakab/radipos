@@ -5,16 +5,12 @@ class Program < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_one_attached :image
 
+  def wday_str
+    ["日曜", "月曜", "火曜", "水曜", "木曜", "金曜", "土曜"][wday] + "日"
+  end
+
   def airtime
-    airtime_start = [ starts_at.strftime("%k").to_i, starts_at.strftime("%M")]
-    airtime_end = [ ends_at.strftime("%k").to_i, ends_at.strftime("%M")]
-    [airtime_start, airtime_end].each do |time|
-      if 0 <= time[0] && time[0] <= 5
-        time[0] += 24
-      end
-    end
-    airtime_start[0].to_s + "時" + airtime_start[1] + "分" + "〜" +
-    airtime_end[0].to_s + "時" + airtime_end[1] + "分"
+    starts_at.strftime("%H:%M") + "-" + ends_at.strftime("%H:%M")
   end
   def self.search(word)
     Program.ransack(title_or_cast_cont: word).result

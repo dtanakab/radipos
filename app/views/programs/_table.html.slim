@@ -1,24 +1,19 @@
 table
-  thead
-    tr
-      th 放送日時
-      th 放送局/番組タイトル
-      th パーソナリティ
-      th お気に入り
   tbody
     - programs.each do |program|
       tr
         td
-          = "毎週" + program.day + "日"
-          br
-          = program.airtime
-        td
-          = program.key_station + "："
-          br
-          = link_to program.title, program_path(program)
+          = program.station
           br
           = image_tag program.image, size: "200x100" if program.image.attached?
         td
+          = link_to program.title, program_path(program)
+          br
+          br
           = program.cast
+          br
+          br
+          = program.wday_str + " "
+          = program.airtime
         td
           = render "programs/favorite", program: program
