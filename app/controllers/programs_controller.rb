@@ -4,8 +4,10 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: [:show, :edit, :update, :destroy]
 
   def index
-    image_attached_programs = Program.all.select { |program| program.image.attached? }
-    @programs = Kaminari.paginate_array(image_attached_programs).page(params[:page])
+    corner_attached_programs = Program.all.select { |program| program.corners.count >= 2 }
+    @programs = Kaminari.paginate_array(corner_attached_programs).page(params[:page])
+    @wday = Date.today.wday
+    @timeframe = (Time.new.strftime("%k").to_i / 5) + 1
   end
 
   def show
@@ -23,6 +25,7 @@ class ProgramsController < ApplicationController
     @program = Program.new(program_params)
 
     if @program.save
+      @program.set_regular_corner
       redirect_to @program, notice: "Program was successfully created."
     else
       render :new
@@ -49,6 +52,6 @@ class ProgramsController < ApplicationController
     end
 
     def program_params
-      params.require(:program).permit(:title, :memo, :email, :cast, :wday, :station, :starts_at, :ends_at, :hp, :image)
+      params.require(:program).permit(:title, :memo, :email, :cast, :station, :starts_at, :ends_at, :hp, :image, :on_air_wday_id)
     end
 end

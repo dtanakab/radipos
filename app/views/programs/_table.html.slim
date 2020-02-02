@@ -5,15 +5,15 @@ table
         td
           = program.station
           br
-          = image_tag program.image, size: "200x100" if program.image.attached?
+          = image_tag program.image, size: "180x100" if program.image.attached?
         td
           = link_to program.title, program_path(program)
           br
           br
-          = program.cast
+          = program.cast_summary
           br
           br
-          = program.wday_str + " "
+          = program.on_air_wday.name + " "
           = program.airtime
         td
           = render "programs/favorite", program: program

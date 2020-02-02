@@ -19,6 +19,13 @@ class CornersController < ApplicationController
     @corner = Corner.new(corner_params)
 
     if @corner.save
+      @programs = Program.where(title: @corner.program.title)
+      if @programs.size > 1
+        @programs.each do |program|
+          program.corners.new(corner_params)
+          program.save
+        end
+      end
       redirect_to @corner.program, notice: "新しいコーナーが追加されました"
     else
       render :new

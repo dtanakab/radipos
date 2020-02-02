@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_071156) do
+ActiveRecord::Schema.define(version: 2020_02_02_080812) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 2020_01_31_071156) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "on_air_wdays", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "subject"
     t.text "content"
@@ -71,13 +78,15 @@ ActiveRecord::Schema.define(version: 2020_01_31_071156) do
     t.text "memo"
     t.string "email"
     t.string "cast"
-    t.integer "wday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "station"
     t.time "starts_at"
     t.time "ends_at"
     t.string "hp"
+    t.integer "on_air_wday_id"
+    t.integer "timeframe"
+    t.index ["on_air_wday_id"], name: "index_programs_on_on_air_wday_id"
   end
 
   create_table "users", force: :cascade do |t|

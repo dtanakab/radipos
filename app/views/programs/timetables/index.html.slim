@@ -1,0 +1,15 @@
+h2
+  = link_to "アカウント情報", user_path(current_user.id) if current_user
+  |  | 
+  = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+= form_tag(timetables_path, method: "get") do
+  = select_tag "wday", options_for_select(@wdays, params[:wday])
+  = select_tag "timeframe", options_for_select(@timeframes, params[:timeframe])
+  = submit_tag "番組表を表示", name: nil
+= render "programs/table", programs: @programs if @programs.any?
+
+br
+= link_to "ユーザーページを確認する", user_path(current_user.id) if current_user
+br
+= link_to 'New Program', new_program_path

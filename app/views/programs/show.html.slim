@@ -2,7 +2,7 @@ p#notice
   = notice
 h2 
   = @program.title
-= image_tag @program.image, size: "600x300" if @program.image.attached?
+= image_tag @program.image, size: "540x300" if @program.image.attached?
 p
   strong
     | 放送局:
@@ -10,7 +10,7 @@ p
 p
   strong
     | 放送日時: 
-  = "毎週" + @program.wday_str + " "
+  = @program.on_air_wday.name + " "
   = @program.airtime
 p
   strong

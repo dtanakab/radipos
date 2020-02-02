@@ -24,8 +24,8 @@
     = f.label "キャスト"
     = f.text_field :cast
   .field
-    = f.label "放送曜日（日曜日=0）"
-    = f.number_field :wday
+    = f.label "放送曜日（日曜日=7）"
+    = f.number_field :on_air_wday_id
   .field
     = f.label "放送時刻"
     = f.time_select :starts_at, time_separator: "：", minute_step: 15

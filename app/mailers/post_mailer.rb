@@ -10,6 +10,7 @@ class PostMailer < ApplicationMailer
     mail(
       subject: @post.subject,
       to: @program.email,
+      cc: @post.user.email,
       from: "radipos.site@gmail.com"
     )
   end

@@ -1,12 +1,32 @@
 # frozen_string_literal: true
 
 class Program < ApplicationRecord
-  has_many :corners, dependent: :destroy
+  has_many :corners
   has_many :favorites, dependent: :destroy
   has_one_attached :image
+  belongs_to :on_air_wday
 
-  def wday_str
-    ["日曜", "月曜", "火曜", "水曜", "木曜", "金曜", "土曜"][wday] + "日"
+  def cast_summary
+    if cast.length >= 16
+      cast[0, 15] + "..."
+    else
+      cast
+    end
+  end
+
+  def set_regular_corner
+    regular_corner = self.corners.new(
+      { title: "ふつおた（普通のお便り）/テーマメール/リアクションメール",
+        subject: "ふつおた/テーマメール/リアクションメール",
+        introduction: "XXXXさん、こんばんは！
+        \n今日のテーマは、「明日絶対にやりたいこと」ですが、
+        \n〜は絶対にやりたいと思っています！
+        \nXXXXさんは、〜をどうしていますか？",
+        alive_flag: 1,
+        unpostable_reason: nil
+      }
+    )
+    regular_corner.save
   end
 
   def airtime

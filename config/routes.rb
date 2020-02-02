@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :programs, only: %i[show index edit update new create] do
     collection do
       resources :search_results, only: %i(index), controller: "programs/search_results"
+      resources :timetables, only: %i(index), controller: "programs/timetables"
     end
   end
   resources :corners, only: %i[new create show edit update]
