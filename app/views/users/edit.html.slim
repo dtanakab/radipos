@@ -1,69 +1,64 @@
-h2
-  | アカウント情報の登録・変更
-= form_with(model: @user, local: true) do |f|
-  - if @user.errors.any?
-    #error_explanation
-      h2
-        = pluralize(@user.errors.count, "error")
-        |  prohibited this program from being saved:
-      ul
-        - @user.errors.full_messages.each do |message|
-          li
-            = message
+div.form_area
+  h2
+    | 会員情報の登録・変更
+  = form_with(model: @user, local: true) do |f|
+    - if @user.errors.any?
+      #error_explanation
+        h2
+          = pluralize(@user.errors.count, "error")
+          |  prohibited this program from being saved:
+        ul
+          - @user.errors.full_messages.each do |message|
+            li
+              = message
 
-  .field
-    strong
-      = f.label "ラジオネーム（必須）"
-    = f.text_field :radio_name, size: "40", required: true, placeholder: "印象に残りやすいネームがオススメです"
-  p
-    | 以下項目については、未入力・無回答の場合、
-    br
-    | ラジオメールに記載されることはありません。
+    div.form_item
+      strong
+        = f.label "ラジオネーム（必須）"
+      = f.text_field :radio_name, size: "40", required: true, placeholder: "印象に残りやすいネームがオススメです", class: "form_input"
 
-  .field
-    strong
-      = f.label "ラジオメール記載範囲通常設定"
-    | （投稿するラジオメールごとにも、記載有無の選択が可能です。）
-    br
-    = f.select :post_mail_setting, @post_mail_settings
+    div.form_item
+      strong
+        = f.label "ラジオメールへの情報記載設定"
+      = f.select :post_mail_setting, User.post_mail_settings.keys.map {|k| [t("enums.user.post_mail_setting.#{k}"), k] }, class: "form_input"
+    div.form_textbox
+      | ※ 投稿するラジオメールごとにも、記載有無の選択が可能です
 
-  .field
-    strong
-      = f.label "本名"
-    = f.text_field :full_name, placeholder: "山田 太郎", size: "40"
+    div.form_item
+      strong
+        = f.label "本名"
+      = f.text_field :full_name, placeholder: "山田 太郎", size: "40", class: "form_input"
 
-  .field
-    strong
-      = f.label "年齢区分"
-    = f.select :about_age, @age_choices, prompt: "無回答"
+    div.form_item
+      strong
+        = f.label "年齢区分"
+      = f.select :about_age, User.about_ages.keys.map {|k| [t("enums.user.about_age.#{k}"), k] }, prompt: "無回答", class: "form_input"
 
-  .field
-    storng
-      = f.label "性別"
-    = f.select :gender, ["男性", "女性"], prompt: "無回答"
-                                            
-  .field
-    strong
-      = f.label "電話番号"
-    = f.text_field :tel, placeholder: "090-1234-5678", size: "40"
+    div.form_item
+      strong
+        = f.label "性別"
+      = f.select :gender, ["男性", "女性"], prompt: "無回答", class: "form_input"
 
-  .field
-    strong
-      = f.label "郵便番号"
-    = f.text_field :postcode, placeholder: "103-0027", size: "40"
+    div.form_item
+      strong
+        = f.label "電話番号"
+      = f.text_field :tel, placeholder: "090-1234-5678", size: "40", class: "form_input"
 
-  .field
-    strong
-      = f.label "住所"
-    = f.text_area :address, placeholder: "東京都中央区日本橋1-1-1 メゾン東京101号", rows: "5", size: "40"
+    div.form_item
+      strong
+        = f.label "郵便番号"
+      = f.text_field :postcode, placeholder: "103-0027", size: "40", class: "form_input"
 
-  .actions
-    = f.submit "登録・変更する"
+    div.form_item
+      strong
+        = f.label "住所"
+      = f.text_area :address, placeholder: "東京都中央区日本橋1-1-1 メゾン東京101号", rows: "5", size: "40", class: "form_input"
 
-h4
-  | 本アカウント情報は
-  = @user.email
-  | 様がラジオにメールを送信する際のみに使用され、
-  br
-  | 他の目的で使用されることはありません
-  = link_to "（プライバシーポリシー）", privacy_path
+    div.form_textbox
+      | 本アカウント情報は、ユーザー様ご自身が、Radiposから
+      | ラジオにメールを送信する際のみに使用され、
+      | 他の目的で使用されることはありません
+      = link_to "（プライバシーポリシー）", privacy_path
+    
+    div.form_item
+      = f.submit "登録・変更する", class: "button"

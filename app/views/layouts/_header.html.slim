@@ -1,0 +1,16 @@
+.header
+  .header_logo
+    = link_to image_tag("logo_transparent.png"), root_path
+  .header_menu
+    - if current_user
+      div.header_link
+        = link_to "マイページ", user_path(current_user.id)
+      |  | 
+      div.header_link
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - else
+      div.header_link
+        = link_to "ログイン", new_user_session_path
+      |  | 
+      div.header_link
+        = link_to "会員登録", new_user_registration_path

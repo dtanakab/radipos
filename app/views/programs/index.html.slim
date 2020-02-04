@@ -2,26 +2,10 @@ p#notice
   = notice.html_safe if notice
 h2
   | 人気おすすめ番組一覧　
-  = link_to "アカウント情報", user_path(current_user.id) if current_user
-  |  | 
-  - if current_user
-    = link_to "ログアウト", destroy_user_session_path, method: :delete
-  - else
-    = link_to "ログイン", new_user_session_path
-    | |
-    = link_to "サインアップ", new_user_registration_path
-
 h3
-  = "掲載/投稿可能ラジオ番組数300以上！"
-  br
-  br
-  = "Radipos経由のラジオ投稿数：累計" + Post.count.to_s + "投稿！"
-  br
   br
   = link_to "番組表", timetables_path(wday: @wday, timeframe: @timeframe)
-= form_tag(search_results_path, method: "get") do
-  = text_field_tag "word", params[:word], placeholder: "番組名、キャストで検索", size: 40
-  = submit_tag "検索", name: nil
+  = render "programs/search_results/search_bar"
 br
 = render "table", programs: @programs
 = paginate @programs

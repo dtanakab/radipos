@@ -1,0 +1,3 @@
+= form_tag(search_results_path, method: "get") do
+  = text_field_tag "word", params[:word], placeholder: "番組名、キャストで検索", size: 40
+  = submit_tag "検索", name: nil

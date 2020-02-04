@@ -5,7 +5,7 @@ h2
 = image_tag @program.image, size: "540x300" if @program.image.attached?
 p
   strong
-    | 放送局:
+    | 放送局: 
   = @program.station
 p
   strong
@@ -14,11 +14,11 @@ p
   = @program.airtime
 p
   strong
-    | 番組ホームページ：
+    | 番組HP（内容引用元）： 
     a href=@program.hp target="_blank" #{@program.hp}
 p
   strong
-    | 番組概要:
+    | 番組概要: 
   = simple_format(@program.memo)
 p
   strong
@@ -26,11 +26,11 @@ p
   = @program.email
 p
   strong
-    | キャスト:
+    | キャスト: 
   = @program.cast
 p
   strong
-    | コーナー（現在継続中）一覧：
+    | コーナー 一覧：
   = render "corners/index", corners: @corners
 
 = link_to "コーナーを追加する", new_corner_path(program_id: @program)

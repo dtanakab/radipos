@@ -61,3 +61,4 @@ yarn-debug.log*
 .yarn-integrity
 
 # Ignore uploaded files in development
+/db/seeds_backup.rb

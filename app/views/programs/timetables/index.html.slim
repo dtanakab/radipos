@@ -1,7 +1,4 @@
-h2
-  = link_to "アカウント情報", user_path(current_user.id) if current_user
-  |  | 
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
+= render "programs/search_results/search_bar"
 
 = form_tag(timetables_path, method: "get") do
   = select_tag "wday", options_for_select(@wdays, params[:wday])

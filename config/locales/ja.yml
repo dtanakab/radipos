@@ -1,4 +1,21 @@
 ja:
+  enums:
+    user:
+      about_age:
+        junior_student: 中学生
+        senior_student: 高校生
+        undergraduate: 大学生
+        early_twenties: 20代前半
+        late_twenties: 20代後半
+        early_thirties: 30代前半
+        late_thirties: 30代後半
+        fourties: 40代
+        fifties: 50代
+        sixties: 60代
+      post_mail_setting:
+        radioname: ラジオネームのみ
+        age_and_gender: ラジオネーム+年齢性別のみ
+        account_information: 住所/本名を含むアカウント情報全て
   activerecord:
     errors:
       messages:

@@ -1,6 +1,5 @@
 h2
   | アカウント情報　
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
 
 - if @user.radio_name == ""
   | ラジオネームが未設定です。

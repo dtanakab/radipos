@@ -1,15 +1,15 @@
 doctype html
-html
+html.is-application lang="ja"
   head
     title
       | Radipos
     = csrf_meta_tags
     = csp_meta_tag
+    meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag('radipos_favicon.ico')
+    = render "layouts/header"
   body
-    h1
-      = link_to "Radipos", root_path
-    br
-    = yield
+    div.contents
+      = yield

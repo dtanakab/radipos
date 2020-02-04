@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_02_080812) do
+ActiveRecord::Schema.define(version: 2020_02_04_034450) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_02_02_080812) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "post_mail_setting"
+    t.integer "post_mail_setting"
     t.index ["corner_id"], name: "index_posts_on_corner_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 2020_02_02_080812) do
     t.string "unconfirmed_email"
     t.string "gender"
     t.string "tel"
-    t.string "about_age"
-    t.string "post_mail_setting"
+    t.integer "about_age"
+    t.integer "post_mail_setting"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

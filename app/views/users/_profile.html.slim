@@ -1,32 +1,12 @@
 | メールアドレス：
 = user.email
 br
-| ラジオメール通常送付イメージ：
 br
-= user.post_mail_setting
-
+| ラジオメールへの情報記載設定：
+= t("enums.user.post_mail_setting.#{user.post_mail_setting}")
 br
-- if user.full_name != ""
-  | 本名：
-  = user.full_name
-  br
-- if user.about_age != ""
-  | 年齢区分：
-  = user.about_age
-  br
-- if user.gender != ""
-  | 性別：
-  = user.gender
-  br
-- if user.tel != ""
-  | 電話番号：
-  = user.tel
-  br
-- if user.postcode != ""
-  | 〒
-  = user.postcode
-  br
-- if user.address != ""
-  | 住所：
-  = user.address
-  br
+br
+| ラジオメール本文イメージ：
+br
+= render "posts/sample"
+br
