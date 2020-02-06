@@ -1,3 +1,12 @@
-= form_tag(search_results_path, method: "get") do
-  = text_field_tag "word", params[:word], placeholder: "番組名、キャストで検索", size: 40
-  = submit_tag "検索", name: nil
+div.search_area
+  = form_tag(search_results_path, method: "get") do
+    div.search_item
+      = text_field_tag "word", params[:word], placeholder: "番組名・キャスト・放送局で検索", size: 40, class: "search_input"
+      = submit_tag "検索", name: nil, class: "search_button"
+
+div.timetable_area
+  = form_tag(timetables_path, method: "get") do
+    div.timetable_item
+      = select_tag "wday", options_for_select(@wdays, params[:wday] ||= 1 ), class: "timetable_wday_select"
+      = select_tag "timeframe", options_for_select(@timeframes, params[:timeframe] ||= (Time.new.strftime("%k").to_i / 5) + 1), class: "timetable_time_select"
+      = submit_tag "番組表", name: nil, class: "timetable_button"

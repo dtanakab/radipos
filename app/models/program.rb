@@ -7,8 +7,8 @@ class Program < ApplicationRecord
   belongs_to :on_air_wday
 
   def cast_summary
-    if cast.length >= 16
-      cast[0, 15] + "..."
+    if cast.length >= 19
+      cast[0, 18] + "..."
     else
       cast
     end

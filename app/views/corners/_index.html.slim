@@ -1,6 +1,11 @@
-ul
-  - corners.each do |corner|
-    - if corner.alive_flag == 1
-      li
+div.corner_table_area
+  h2.radio_mail_title
+    | ラジオメール投稿
+  p.warning
+    | ※件名と内容以外は、アカウント情報などから自動で入力されます
+  div.corner_form_box
+    - corners.each do |corner|
+      strong
+        |  ◆ 
         = link_to corner.title, edit_corner_path(corner)
         = render "posts/form", corner: corner

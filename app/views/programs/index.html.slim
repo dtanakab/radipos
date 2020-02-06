@@ -5,7 +5,6 @@ h2
 h3
   br
   = link_to "番組表", timetables_path(wday: @wday, timeframe: @timeframe)
-  = render "programs/search_results/search_bar"
 br
 = render "table", programs: @programs
 = paginate @programs

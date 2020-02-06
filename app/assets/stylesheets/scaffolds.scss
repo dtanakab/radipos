@@ -1,3 +1,13 @@
+body,
+p,
+ol,
+ul,
+td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
 body {
   background-color: #f3f3f3;
   color: #333;
@@ -40,8 +50,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 5px;
+  padding: 3px;
   font-size: 14px;
+  margin-right: -10px;
   color: dimgray;
 }
 
@@ -112,7 +123,10 @@ body {
   font-size: 14px;
 }
 
-.button {
+.button,
+.search_button,
+.timetable_button,
+.post_button {
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
   appearance: button;
@@ -120,7 +134,9 @@ body {
   height: 50px;
   font-size: 14px;
   font-weight: bold;
-  background-color: white;
+  color: white;
+  background-color: #0066cc;
+  border: none;
   padding: 1px;
   &::-webkit-search-decoration {
     display: none;
@@ -133,26 +149,202 @@ body {
 select {
   width: 98%;
   height: 50px;
-  margin-bottom: 40px;
   padding: 7px 30px 7px 10px;
   font-size: 16px;
   line-height: 1.1em;
   border: 1px solid;
   border-color: dimgray;
+  border-radius: 1px;
   background-repeat: no-repeat;
   background-size: 12px 10px;
   background-position: right 10px center;
   background-color: white;
 }
 
-body,
-p,
-ol,
-ul,
-td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+.search_area {
+  width: 100%;
+  margin: auto;
+  margin-top: -20px;
+  margin-bottom: 8px;
+  height: 70px;
+  text-align: center;
+}
+
+.search_item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search_input {
+  width: 90%;
+  max-width: 450px;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 1px;
+  border-right: none;
+}
+
+.timetable_area {
+  width: 100%;
+  margin: auto;
+  margin-top: -20px;
+  margin-bottom: 8px;
+  height: 70px;
+  text-align: center;
+}
+
+.timetable_item {
+  display: flex;
+  align-items: center;
+}
+
+.timetable_wday_select,
+.timetable_time_select {
+  display: block;
+  background-color: white;
+  height: 37px;
+  margin-right: 3px;
+  font-size: 14px;
+}
+
+.timetable_wday_select {
+  width: 30%;
+  max-width: 200px;
+}
+
+.timetable_time_select {
+  width: 60%;
+  max-width: 200px;
+}
+
+.search_button,
+.timetable_button {
+  width: 15%;
+  max-width: 100px;
+  height: 30px;
+  color: white;
+  background-color: dimgray;
+  padding: 3px;
+  border-radius: 2px;
+  border-left: none;
+}
+
+.timetable_button {
+  border-left: 1px solid;
+  border-color: dimgray;
+}
+
+.table_area {
+  margin-top: -20px;
+}
+
+.table_items {
+  border: solid;
+}
+
+.table_item {
+  display: block;
+  border: 1px solid;
+  border-radius: 4px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding-top: 5px;
+}
+
+.table_item_value {
+  line-height: 24px;
+}
+
+.program_icon {
+  width: 100%;
+  max-width: 500px;
+}
+
+.program_airtime {
+  color: #ff367f;
+}
+
+.program_detail_area {
+  line-height: 24px;
+  margin-top: -36px;
+}
+
+.program_title,
+.radio_mail_title {
+  font-size: 20px;
+  margin: 5px 0px 10px 0px;
+  font-weight: bold;
+}
+
+.program_image {
+  width: 100%;
+  max-width: 600px;
+}
+
+.program_line {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.6px dashed;
+  border-color: #b8860b;
+}
+
+.program_column {
+  width: 33%;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.program_value {
+  width: 66%;
+  line-height: 20px;
+}
+
+.radio_mail_title {
+  margin-top: 30px;
+}
+
+.warning {
+  color: #ff367f;
+  margin: 10px 0px 20px 0px;
+}
+
+.corner_form_box {
+  width: 93%;
+  max-width: 600px;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.post_column {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.post_input {
+  width: 95%;
+  min-height: 40px;
+  line-height: 20px;
+  max-width: 600px;
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 1px;
+}
+
+#post_post_mail_setting {
+  font-size: 14px;
+  width: 95%;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.post_button {
+  border: none;
+  width: 95%;
+  margin: 15px 0px;
 }
 
 pre {
@@ -163,11 +355,6 @@ pre {
 
 a {
   color: #000;
-}
-
-a:hover {
-  color: #fff;
-  background-color: #000;
 }
 
 th {

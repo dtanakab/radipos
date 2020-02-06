@@ -1,21 +1,13 @@
-- if corner.unpostable_reason == nil || corner.unpostable_reason == ""
-  = form_with(model: Post, url:posts_path, local: true) do |f|
-    strong
-      | ※件名と内容以外は、アカウント情報などから自動で入力されます
-    br
-    .field
-      = f.label "メール件名（適宜ご変更ください）"
-      = f.text_field :subject, value: corner.subject, size: 60
-    .field
-      = f.label "投稿内容"
-      = f.text_area :content, rows: 20, cols: 60, placeholder: corner.introduction
-    .field
-      = f.label "ラジオメールへの情報記載設定："
-      = f.select :post_mail_setting, Post.post_mail_settings.keys.map {|k| [t("enums.user.post_mail_setting.#{k}"), k] }, selected: current_user.post_mail_setting
-      = f.hidden_field :corner_id, value: corner.id
-    .actions
-      = f.submit "送信する"
-- else 
-  strong
-    = simple_format(corner.unpostable_reason)
-  = simple_format(corner.introduction)
+= form_with(model: Post, url:posts_path, local: true) do |f|
+  = f.label "メール件名（適宜ご変更ください）", class: "post_column"
+  = f.text_field :subject, value: corner.subject, size: 60, class: "post_input"
+
+  = f.label "投稿内容", class: "post_column"
+  = f.text_area :content, rows: 12, placeholder: corner.introduction, class: "post_input"
+
+  = f.label "ラジオメールへの情報記載設定：", class: "post_column"
+  = f.select :post_mail_setting, Post.post_mail_settings.keys.map {|k| [t("enums.user.post_mail_setting.#{k}"), k] }, selected: current_user.post_mail_setting, class: "post_select"
+
+  = f.hidden_field :corner_id, value: corner.id
+  .post_bottom
+    = f.submit "送信する", class: "post_button"

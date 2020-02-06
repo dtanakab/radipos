@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddDetailsToPrograms < ActiveRecord::Migration[6.0]
   def change
     add_column :programs, :key_station, :string

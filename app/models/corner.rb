@@ -3,5 +3,4 @@
 class Corner < ApplicationRecord
   belongs_to :program
   has_many :posts, dependent: :destroy
-
 end

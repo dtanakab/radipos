@@ -1,40 +1,40 @@
 p#notice
   = notice
-h2 
-  = @program.title
-= image_tag @program.image, size: "540x300" if @program.image.attached?
-p
-  strong
-    | 放送局: 
-  = @program.station
-p
-  strong
-    | 放送日時: 
-  = @program.on_air_wday.name + " "
-  = @program.airtime
-p
-  strong
-    | 番組HP（内容引用元）： 
-    a href=@program.hp target="_blank" #{@program.hp}
-p
-  strong
-    | 番組概要: 
-  = simple_format(@program.memo)
-p
-  strong
-    | 投稿用メールアドレス:
-  = @program.email
-p
-  strong
-    | キャスト: 
-  = @program.cast
-p
-  strong
-    | コーナー 一覧：
-  = render "corners/index", corners: @corners
+div.program_detail_area
+  div.program_station
+    = @program.station
+  div.program_title
+    = @program.title
+  = image_tag @program.image, class: "program_image"
+  div.program_line
+    .program_column
+      | 出演者
+    .program_value
+      = @program.cast
+  div.program_line
+    .program_column
+      | 放送日時
+    .program_value.program_airtime
+      = @program.on_air_wday.name + " "
+      = @program.airtime
+  div.program_line
+    .program_column
+      | 番組HP
+    .program_value
+      a href=@program.hp target="_blank" #{@program.hp}
+  div.program_line
+    .program_column
+      | 番組概要
+    .program_value
+      = @program.memo
+  div.program_line
+    .program_column
+      | メールアドレス
+    .program_value
+      = mail_to "#{@program.email}", @program.email
 
+= render "corners/index", corners: @corners
 = link_to "コーナーを追加する", new_corner_path(program_id: @program)
-|  | 
 = link_to 'Edit', edit_program_path(@program)
 |  | 
 = link_to 'Back', programs_path
