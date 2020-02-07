@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :api, { format: "json" } do
+    resources :likes, only: [:index, :create, :destroy]
+  end
   root to: "programs#index"
   devise_for :users, controllers: {
     registrations: "users/registrations",

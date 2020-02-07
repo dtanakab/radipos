@@ -21,7 +21,7 @@ div.program_detail_area
     .program_column
       | 番組HP
     .program_value
-      a href=@program.hp target="_blank" #{@program.hp}
+      = link_to omit_words(@program.hp, 26), @program.hp, target: "_blank"
   div.program_line
     .program_column
       | 番組概要

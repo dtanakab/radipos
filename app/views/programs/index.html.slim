@@ -4,7 +4,7 @@ h2
   | 人気おすすめ番組一覧　
 h3
   br
-  = link_to "番組表", timetables_path(wday: @wday, timeframe: @timeframe)
+  = link_to "番組表", timetables_path(wday: today_wday, timeframe: now_timeframe)
 br
 = render "table", programs: @programs
 = paginate @programs

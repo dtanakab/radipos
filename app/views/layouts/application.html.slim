@@ -7,7 +7,9 @@ html.is-application lang="ja"
     = csp_meta_tag
     meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application'
+    = javascript_pack_tag 'application'
+    = javascript_include_tag "application"
     = favicon_link_tag('radipos_favicon.ico')
     = render "layouts/header"
   body

@@ -1,0 +1,4 @@
+.unfavorite
+  = form_with(model:current_user.favorites.find_by(program_id: program.id), method: :delete) do |f|
+    = f.hidden_field :program_id, value: program.id
+    = f.submit "削除", name: nil

@@ -6,8 +6,6 @@ class ProgramsController < ApplicationController
   def index
     corner_attached_programs = Program.all.select { |program| program.corners.count >= 2 }
     @programs = Kaminari.paginate_array(corner_attached_programs).page(params[:page])
-    @wday = Date.today.wday
-    @timeframe = (Time.new.strftime("%k").to_i / 5) + 1
   end
 
   def show

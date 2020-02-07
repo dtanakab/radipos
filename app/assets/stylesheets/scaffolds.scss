@@ -8,6 +8,11 @@ td {
   line-height: 18px;
 }
 
+a {
+  color: dimgray;
+  text-decoration: underline;
+}
+
 body {
   background-color: #f3f3f3;
   color: #333;
@@ -78,6 +83,7 @@ body {
 
 .contents {
   width: 94%;
+  max-width: 700px;
   padding-top: 40px;
   margin: auto;
 }
@@ -173,12 +179,13 @@ select {
 .search_item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin: auto;
   margin-bottom: 20px;
 }
 
 .search_input {
-  width: 90%;
-  max-width: 450px;
+  width: 76%;
   height: 30px;
   font-size: 14px;
   border-radius: 1px;
@@ -187,9 +194,7 @@ select {
 
 .timetable_area {
   width: 100%;
-  margin: auto;
-  margin-top: -20px;
-  margin-bottom: 8px;
+  margin: -20px auto 8px auto;
   height: 70px;
   text-align: center;
 }
@@ -197,6 +202,7 @@ select {
 .timetable_item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .timetable_wday_select,
@@ -204,39 +210,35 @@ select {
   display: block;
   background-color: white;
   height: 37px;
-  margin-right: 3px;
   font-size: 14px;
 }
 
 .timetable_wday_select {
-  width: 30%;
-  max-width: 200px;
+  width: 25%;
 }
 
 .timetable_time_select {
-  width: 60%;
-  max-width: 200px;
+  width: 45%;
 }
 
 .search_button,
 .timetable_button {
-  width: 15%;
-  max-width: 100px;
+  width: 20%;
   height: 30px;
   color: white;
-  background-color: dimgray;
-  padding: 3px;
+  padding: 3px 0px 3px 0px;
   border-radius: 2px;
   border-left: none;
 }
 
 .timetable_button {
-  border-left: 1px solid;
-  border-color: dimgray;
+  background-color: dimgray;
 }
 
 .table_area {
-  margin-top: -20px;
+  width: 100%;
+  margin: auto;
+  margin-top: -15px;
 }
 
 .table_items {
@@ -244,30 +246,74 @@ select {
 }
 
 .table_item {
-  display: block;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   border: 1px solid;
   border-radius: 4px;
   background-color: white;
   margin-bottom: 10px;
-  padding-top: 5px;
+  padding: 10px;
 }
 
 .table_item_value {
-  line-height: 24px;
+  width: 98%;
 }
 
 .program_icon {
   width: 100%;
-  max-width: 500px;
+}
+
+.program_bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.program_heading {
+  font-weight: bold;
+}
+
+.program_location {
+  display: flex;
+  line-height: 24px;
+  color: dimgray;
+}
+
+.program_datetime {
+  margin-left: 20px;
 }
 
 .program_airtime {
   color: #ff367f;
 }
 
+.star_area {
+  border-top: 1px solid;
+  border-color: #dddddd;
+  color: dimgray;
+  margin: -16px;
+  margin-top: 8px;
+}
+
+.star {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.star img {
+  width: 40%;
+  height: 40%;
+  max-width: 30px;
+  max-height: 30px;
+  margin-right: 20px;
+}
+
 .program_detail_area {
   line-height: 24px;
-  margin-top: -36px;
+  margin: -36px auto 0px auto;
 }
 
 .program_title,
@@ -279,16 +325,15 @@ select {
 
 .program_image {
   width: 100%;
-  max-width: 600px;
 }
 
 .program_line {
   width: 100%;
-  max-width: 600px;
   display: flex;
   align-items: center;
   border-bottom: 0.6px dashed;
   border-color: #b8860b;
+  padding: 5px 0px;
 }
 
 .program_column {
@@ -312,25 +357,37 @@ select {
 }
 
 .corner_form_box {
-  width: 93%;
-  max-width: 600px;
+  width: 100%;
   border: 1px solid;
+  border-color: #b8860b;
   border-radius: 4px;
-  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #ffffee;
 }
 
 .post_column {
   font-weight: bold;
+  width: 95%;
+  margin: auto;
   margin-top: 20px;
 }
 
+.post_field {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
 .post_input {
-  width: 95%;
+  width: 94%;
   min-height: 40px;
   line-height: 20px;
-  max-width: 600px;
   font-size: 14px;
-  border-radius: 2px;
+  border: 1px solid;
+  border-color: dimgray;
+  border-radius: 3px;
+  margin: auto;
   padding: 1px;
 }
 
@@ -344,17 +401,13 @@ select {
 .post_button {
   border: none;
   width: 95%;
-  margin: 15px 0px;
+  margin: 20px 0px;
 }
 
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
-}
-
-a {
-  color: #000;
 }
 
 th {

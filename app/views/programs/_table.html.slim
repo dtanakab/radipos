@@ -1,18 +1,16 @@
 table.table_area
-  tbody.table_items
+  tbody.table_items#like
     - programs.each do |program|
       tr.table_item
         td.table_item_value
-          = program.station
-          br
           = link_to image_tag(program.image, class: "program_icon"), program_path(program)
-          br
-          = link_to program.title, program_path(program)
-          .program_airtime
-            = program.on_air_wday.name + " "
-            = program.airtime
-          = program.cast_summary
-          br
-
-        td.table_item_value
-          = render "programs/favorite", program: program
+          .program_bottom
+            .program_heading
+              = link_to program.title, program_path(program)
+            .program_location
+              = program.station
+              .program_datetime.program_airtime
+                = program.on_air_wday.name + " "
+                = program.airtime
+          .star_area
+            like-button :user-id="#{current_user.id}" :program-id="#{program.id}"

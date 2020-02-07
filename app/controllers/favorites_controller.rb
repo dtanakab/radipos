@@ -5,18 +5,12 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = current_user.favorites.new(favorite_params)
-
-    if @favorite.save
-      redirect_to root_path, notice: "#{@program.title}がお気に入りに追加されました"
-    else
-    end
+    @favorite.save
   end
 
   def destroy
     @favorite = current_user.favorites.find_by(program_id: @program.id)
-    if @favorite.destroy
-      redirect_to root_path, notice: "#{@program.title}がお気に入りから削除されました"
-    end
+    @favorite.destroy
   end
 
   private

@@ -3,16 +3,9 @@
 class Program < ApplicationRecord
   has_many :corners
   has_many :favorites, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_one_attached :image
   belongs_to :on_air_wday
-
-  def cast_summary
-    if cast.length >= 19
-      cast[0, 18] + "..."
-    else
-      cast
-    end
-  end
 
   def set_regular_corner
     regular_corner = self.corners.new(
@@ -32,6 +25,7 @@ class Program < ApplicationRecord
   def airtime
     starts_at.strftime("%H:%M") + "-" + ends_at.strftime("%H:%M")
   end
+
   def self.search(word)
     Program.ransack(title_or_cast_cont: word).result
   end
