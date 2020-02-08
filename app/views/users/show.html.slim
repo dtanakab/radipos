@@ -9,13 +9,17 @@ h2
   = link_to "アカウント情報を登録する", edit_user_path
 - else
   = render "profile", user: current_user
+  #tab
+    tab-button
+  #page
+    tab-page
   = link_to "アカウント情報を変更する", edit_user_path
 br
 = link_to "メールアドレス/パスワードを変更する", edit_user_registration_path
 
 h2
   | お気に入りの番組一覧
-= render "programs/table", programs: @favorite_programs 
+= render "programs/table", programs: @like_programs
 h2
   | 過去の投稿（
   = @user.posts.count.to_s + "件）"

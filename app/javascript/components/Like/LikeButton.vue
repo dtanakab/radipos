@@ -21,7 +21,7 @@ export default {
   },
   // 算出プロパティ ここではlikeListが変更される度に、isLiked が再構築される
   computed: {
-    // ログインユーザが既にいいねしているかを判定する
+    // ログインユーザが既にいいねしているかを判定（いいね一覧がそもそも0であればその旨を返し、いいね一覧に複数あれば、ユーザーIDが入っているか確認して、入っている場合はユーザーIDを返す）
     isLiked() {
       if (this.likeList.length === 0) {
         return false;
@@ -44,7 +44,6 @@ export default {
       }
       return res.data;
     },
-    // rails側のcreateアクションにリクエストするメソッド
     registerLike: async function() {
       const res = await axios.post(`/api/likes`, {
         program_id: this.programId
@@ -56,7 +55,6 @@ export default {
         this.likeList = result;
       });
     },
-    // rails側のdestroyアクションにリクエストするメソッド
     deleteLike: async function() {
       const likeId = this.findLikeId();
       const res = await axios.delete(`/api/likes/${likeId}`);

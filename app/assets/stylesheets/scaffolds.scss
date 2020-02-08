@@ -272,6 +272,7 @@ select {
 
 .program_heading {
   font-weight: bold;
+  margin: 5px 0px;
 }
 
 .program_location {
@@ -301,6 +302,7 @@ select {
   justify-content: center;
   align-items: center;
   padding: 8px;
+  font-weight: bolder;
 }
 
 .star img {
@@ -402,6 +404,37 @@ select {
   border: none;
   width: 95%;
   margin: 20px 0px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px -20px;
+}
+
+.unselected,
+.selected {
+  width: 33%;
+  text-align: center;
+  margin: 0px;
+}
+
+.unselected {
+  background-color: #fef298;
+  border: solid;
+  border-color: #fef298;
+}
+
+.selected {
+  background-color: #ffe100;
+  border: solid;
+  border-color: #ffe100;
+}
+
+.selected img,
+.unselected img {
+  height: 25px;
+  margin: 7px;
 }
 
 pre {

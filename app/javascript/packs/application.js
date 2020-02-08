@@ -4,3 +4,5 @@
 // that code so it'll be compiled.
 
 require("./index.js");
+require("./mypage.js");
+require("./tabpage.js");

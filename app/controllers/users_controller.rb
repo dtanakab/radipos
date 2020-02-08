@@ -3,9 +3,9 @@
 class UsersController < ApplicationController
   before_action :set_user
   def show
-    @favorite_programs = []
-    current_user.favorites.each do | favorite |
-      @favorite_programs << Program.find(favorite.program_id)
+    @like_programs = []
+    current_user.likes.each do | like |
+      @like_programs << Program.find(like.program_id)
     end
     if @user.radio_name != ""
       @temp_name = @user.radio_name
