@@ -81,6 +81,16 @@ body {
   color: dimgray;
 }
 
+.top_image {
+  width: 100%;
+  border: solid;
+}
+
+.top_image img {
+  margin: -22px -4%;
+  width: 107%;
+}
+
 .contents {
   width: 94%;
   max-width: 700px;
