@@ -84,7 +84,7 @@ body {
 .contents {
   width: 94%;
   max-width: 700px;
-  padding-top: 40px;
+  padding-top: 5px;
   margin: auto;
 }
 
@@ -169,9 +169,7 @@ select {
 
 .search_area {
   width: 100%;
-  margin: auto;
-  margin-top: -20px;
-  margin-bottom: 8px;
+  margin: 10px auto 8px auto;
   height: 70px;
   text-align: center;
 }
@@ -315,7 +313,7 @@ select {
 
 .program_detail_area {
   line-height: 24px;
-  margin: -36px auto 0px auto;
+  margin: 10px auto 0px auto;
 }
 
 .program_title,
@@ -373,6 +371,9 @@ select {
   margin: auto;
   margin-top: 20px;
 }
+.post_corner_title {
+  font-size: 18px;
+}
 
 .post_field {
   width: 100%;
@@ -408,33 +409,113 @@ select {
 
 .tabs {
   display: flex;
-  justify-content: space-between;
-  margin: 10px -20px;
+  margin: 20px -3% 30px -3%;
+  width: 106%;
 }
 
-.unselected,
-.selected {
-  width: 33%;
+.tab_icon {
+  width: 33.3%;
   text-align: center;
   margin: 0px;
-}
-
-.unselected {
   background-color: #fef298;
-  border: solid;
-  border-color: #fef298;
 }
 
-.selected {
-  background-color: #ffe100;
-  border: solid;
-  border-color: #ffe100;
-}
-
-.selected img,
-.unselected img {
+.tab_icon img {
   height: 25px;
-  margin: 7px;
+  margin: 8px auto;
+  display: block;
+}
+
+.selected_icon {
+  background-color: #ffe100;
+}
+
+.setting_area {
+  margin-bottom: 40px;
+}
+
+.sample_mail_area {
+  border: 1px solid;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 2px 2px 2px 2px;
+}
+
+.mail_title {
+  text-align: center;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid;
+  border-color: dimgray;
+  font-weight: bolder;
+  height: 50px;
+  line-height: 50px;
+}
+
+.mail_item,
+.mail_content {
+  margin: 0px 5px;
+  color: dimgray;
+  border-bottom: 0.5px solid;
+  height: 45px;
+  line-height: 45px;
+  display: flex;
+}
+
+.mail_address,
+.mail_subject {
+  color: #3399ff;
+}
+
+.mail_content {
+  line-height: 16px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: auto;
+  border-bottom: none;
+}
+
+.posted_mail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  background-color: white;
+}
+
+.posted_program_info {
+  display: flex;
+  align-items: center;
+  margin: 5px 0px 5px 5px;
+}
+
+.posted_program_image {
+  width: 40%;
+  max-width: 100px;
+}
+
+.posted_program_image img {
+  width: 100%;
+}
+
+.posted_corner_title {
+  margin: 0px 0px 5px 10px;
+  line-height: 20px;
+}
+
+.posted_mail_content {
+  border-top: 1px dashed;
+  margin-left: 5px;
+  padding-top: 5px;
+  line-height: 20px;
+}
+
+.posted_datetime {
+  margin: 0px 0px 5px 5px;
+  line-height: 20px;
 }
 
 pre {

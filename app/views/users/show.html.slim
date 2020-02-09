@@ -1,29 +1,71 @@
-h2
-  | アカウント情報　
-
-- if @user.radio_name == ""
-  | ラジオネームが未設定です。
-  br
-  | 今すぐラジオネームを登録しましょう！
-  br
-  = link_to "アカウント情報を登録する", edit_user_path
-- else
-  = render "profile", user: current_user
-  #tab
-    tab-button
-  #page
-    tab-page
-  = link_to "アカウント情報を変更する", edit_user_path
+=render "profile"
 br
-= link_to "メールアドレス/パスワードを変更する", edit_user_registration_path
+.tab_area
+  .tabs
+    .tab_icon.selected_icon
+      =link_to image_tag("/assets/setting_icon_selected"), current_user
+    .tab_icon
+      =link_to image_tag("/assets/blank_star_icon"), user_likes_path(current_user)
+    .tab_icon
+      =link_to image_tag("/assets/sended_icon"), user_posted_mails_path(current_user)
 
-h2
-  | お気に入りの番組一覧
-= render "programs/table", programs: @like_programs
-h2
-  | 過去の投稿（
-  = @user.posts.count.to_s + "件）"
-= render "posts/table", posts: @user.posts
-
-br
-= link_to "退会する", user_registration_path, data: { confirm: "Radiposを退会し、本当にアカウントを削除しますか?" }, method: :delete
+.setting_area
+  h2
+    | ラジオメールの設定
+  .profile_edit_link
+    = link_to "ラジオメール設定/プロフィール情報を編集", edit_user_path
+  .sample_mail_area
+    .mail_title
+      | ラジオメール送信イメージ
+    .mail_item
+      .mail_column
+        | 宛先： 
+      .mail_address
+        | 番組メールアドレス:自動入力
+    .mail_item
+      .mail_column
+        | Cc： 
+      .mail_address
+        = @user.email
+    .mail_item
+      .mail_column
+        | 件名： 
+      .mail_subject
+        | xxのコーナー:メール送信時に変更/入力
+    .mail_content
+      | ラジオネーム→
+      = @user.radio_name
+      - if @user.age_and_gender? || @user.account_information?
+        | (
+        = t("enums.user.about_age.#{@user.about_age}") + @user.gender
+        | )
+      br
+      br
+      | メール内容:メール送信時に入力
+      br
+      br
+      - if @user.account_information?
+        | 〒
+        = @user.postcode
+        br
+        | 住所：
+        = @user.address
+        br
+        | 本名：
+        = @user.full_name
+        br
+        | 電話番号：
+        = @user.tel
+        br
+      br
+      | ------------------------------------------------
+      br
+      | ※ 本メールはラジオメール投稿サービス
+      br
+      | 　radipos.siteから送信されています。
+      br
+      | 　メール内容に関するお問い合わせは、
+      br
+      | 　Ccのメールアドレスまでお願いいたします。
+      br
+      | ------------------------------------------------

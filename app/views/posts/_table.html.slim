@@ -1,16 +1,17 @@
-p
-  ul
-    - posts.each do |post|
-      li
+- posts.each do |post|
+  .posted_mail
+    .posted_program_info
+      .posted_program_image
+        = link_to image_tag(post.corner.program.image), post.corner.program
+      .posted_corner_title
         = link_to post.corner.program.title, post.corner.program
-        ul
-          li
-            | コーナー名：
-            = post.corner.title
-          li
-            | 投稿内容：「
-            = post.content
-            | 」
-          li
-            | 投稿日時：
-            = post.created_at.strftime("%F　%T")
+        br
+        | コーナー名：
+        = post.corner.title
+    .posted_mail_content
+      | 【投稿内容】
+      br
+      = simple_format(post.content)
+    .posted_datetime
+      | 【投稿日時】
+      = datetime_format(post.created_at)

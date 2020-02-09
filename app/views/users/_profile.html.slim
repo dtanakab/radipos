@@ -1,12 +1,15 @@
-| メールアドレス：
-= user.email
-br
-br
-| ラジオメールへの情報記載設定：
-= t("enums.user.post_mail_setting.#{user.post_mail_setting}")
-br
-br
-| ラジオメール本文イメージ：
-br
-= render "posts/sample"
-br
+.profile_area
+  h2
+    | マイページ
+  .profile_info
+    .profile_item
+      =image_tag("/assets/user_icon")
+    .profile_item
+      | メールアドレス：
+      = current_user.email
+    br
+  .profile_links
+    .profile_edit_link
+      = link_to "メールアドレス/パスワードを変更", edit_user_registration_path
+    .profile_edit_link
+      = link_to "退会する", user_registration_path, data: { confirm: "Radiposを退会し、本当にアカウントを削除しますか?" }, method: :delete

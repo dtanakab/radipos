@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     confirmations: "users/confirmations",
   }
-  resources :users, only: %i[show edit update]
+  resources :users, only: %i[show edit update] do
+    resources :likes, only: %i(index), controller: "users/likes"
+    resources :posted_mails, only: %i(index), controller: "users/posted_mails"
+  end
   resources :programs, only: %i[show index edit update new create] do
     collection do
       resources :search_results, only: %i(index), controller: "programs/search_results"
