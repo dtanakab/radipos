@@ -20,7 +20,7 @@
       .program_column
         | 放送日時
       .program_value.program_airtime
-        = @program.on_air_wday.display_str.name + " "
+        = @program.on_air_wday.display_str + " "
         = @program.airtime
     .program_line
       .program_column
