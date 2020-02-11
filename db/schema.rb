@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_07_125928) do
+ActiveRecord::Schema.define(version: 2020_02_11_095943) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -45,15 +45,6 @@ ActiveRecord::Schema.define(version: 2020_02_07_125928) do
     t.index ["program_id"], name: "index_corners_on_program_id"
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "program_id"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["program_id"], name: "index_favorites_on_program_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "program_id", null: false
@@ -64,7 +55,7 @@ ActiveRecord::Schema.define(version: 2020_02_07_125928) do
   end
 
   create_table "on_air_wdays", force: :cascade do |t|
-    t.string "name"
+    t.string "display_str"
     t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -123,8 +114,6 @@ ActiveRecord::Schema.define(version: 2020_02_07_125928) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "favorites", "programs"
-  add_foreign_key "favorites", "users"
   add_foreign_key "likes", "programs"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "corners"

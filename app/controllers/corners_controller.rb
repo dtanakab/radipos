@@ -42,7 +42,7 @@ class CornersController < ApplicationController
 
   def destroy
     if @corner.destroy
-      redirect_to corners_path, notice: "コーナーが削除されました"
+      redirect_to programs_path, notice: "コーナーが削除されました"
     end
   end
 

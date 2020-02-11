@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :timetables, only: %i(index), controller: "programs/timetables"
     end
   end
-  resources :corners, only: %i[new create show edit update]
+  resources :corners
   resources :posts, only: %i[create]
   resources :favorites, only: %i[create destroy]
   resource :privacy, only: %i[show]

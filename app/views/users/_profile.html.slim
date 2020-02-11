@@ -1,15 +1,14 @@
 .profile_area
-  h2
-    | マイページ
-  .profile_info
-    .profile_item
+  .profile_title
+    h2
+      | マイページ
+  .profile_content
+    .profile_image
       =image_tag("/assets/user_icon")
-    .profile_item
-      | メールアドレス：
-      = current_user.email
-    br
-  .profile_links
-    .profile_edit_link
-      = link_to "メールアドレス/パスワードを変更", edit_user_registration_path
-    .profile_edit_link
-      = link_to "退会する", user_registration_path, data: { confirm: "Radiposを退会し、本当にアカウントを削除しますか?" }, method: :delete
+    .profile_items
+      .profile_item.profile_email
+        = current_user.email
+      .profile_item.profile_button
+        = link_to "メールアドレス/パスワードを変更", edit_user_registration_path
+      .profile_item.profile_leave
+        = link_to "退会する", user_registration_path, data: { confirm: "Radiposを退会し、本当にアカウントを削除しますか?" }, method: :delete

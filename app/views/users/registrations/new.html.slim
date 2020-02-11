@@ -1,28 +1,29 @@
-div.form_area
-  h2
-    | アカウントを作成
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = render "devise/shared/error_messages", resource: resource
-    div.form_item
-      | メールアドレス
-      br
-      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: " sample@gmail.com", size: "50", class: "form_input"
-    div.form_item
-      | パスワード
-      br
-      = f.password_field :password, autocomplete: "new-password", placeholder: " 英数字6文字以上", size: "50", class: "form_input"
-    div.form_item
-      | もう一度パスワードを入力してください
-      br
-      = f.password_field :password_confirmation, autocomplete: "new-password", size: "50", class: "form_input"
-    div.form_item
-      = f.submit "アカウントを作成", class: "button"
-    div.form_textbox
-      | 会員登録/ログインすることにより、Radiposの
-      = link_to "利用規約", term_path
-      | および
-      = link_to "プライバシーポリシー", privacy_path
-      | に同意したとみなされます。
-    div.form_textbox
-      | すでにアカウントをお持ちですか？ 
-      = link_to "ログイン▶︎", new_user_session_path()
+.contents
+  div.form_area
+    h2
+      | 会員登録・アカウントを作成
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      div.form_item
+        | メールアドレス
+        br
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: " sample@gmail.com", size: "50", class: "form_input"
+      div.form_item
+        | パスワード
+        br
+        = f.password_field :password, autocomplete: "new-password", placeholder: " 英数字6文字以上", size: "50", class: "form_input"
+      div.form_item
+        | もう一度パスワードを入力してください
+        br
+        = f.password_field :password_confirmation, autocomplete: "new-password", size: "50", class: "form_input"
+      div.form_item
+        = f.submit "アカウントを作成", class: "button"
+      div.form_textbox
+        | 会員登録/ログインすることにより、Radiposの
+        = link_to "利用規約", term_path
+        | および
+        = link_to "プライバシーポリシー", privacy_path
+        | に同意したとみなされます。
+      div.form_textbox
+        | すでにアカウントをお持ちですか？ 
+        = link_to "ログイン▶︎", new_user_session_path()

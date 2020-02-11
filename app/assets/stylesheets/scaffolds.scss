@@ -81,14 +81,25 @@ body {
   color: dimgray;
 }
 
-.top_image {
+.second_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #cccccc;
+  margin: 0px;
   width: 100%;
-  border: solid;
+  height: 110px;
 }
 
-.top_image img {
-  margin: -22px -4%;
-  width: 107%;
+.top_image {
+  width: 100%;
+  max-width: 700px;
+  margin: 0px auto 0px auto;
+  text-align: center;
+  img {
+    width: 100%;
+    max-width: 700px;
+  }
 }
 
 .contents {
@@ -102,7 +113,7 @@ body {
   width: 95%;
   max-width: 400px;
   height: 90%;
-  margin: auto;
+  margin: 25px auto;
   margin-bottom: 30px;
   border: 1px solid;
   border-color: dimgray;
@@ -120,9 +131,12 @@ body {
 .form_item {
   width: 96%;
   height: 60px;
-  margin: auto;
-  margin-bottom: 30px;
+  margin: 0px auto 30px auto;
   font-size: 14px;
+}
+
+.form_bottom_item {
+  margin-bottom: 10px;
 }
 
 .form_input {
@@ -139,6 +153,10 @@ body {
   font-size: 14px;
 }
 
+.back_link {
+  margin-left: 8px;
+}
+
 .button,
 .search_button,
 .timetable_button,
@@ -146,7 +164,7 @@ body {
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
   appearance: button;
-  width: 96%;
+  width: 96.5%;
   height: 50px;
   font-size: 14px;
   font-weight: bold;
@@ -178,18 +196,23 @@ select {
 }
 
 .search_area {
-  width: 100%;
-  margin: 10px auto 8px auto;
-  height: 70px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 0px auto;
+  height: 40px;
+  width: 94%;
+  form {
+    width: 100%;
+  }
 }
 
-.search_item {
+.search_items {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: auto;
-  margin-bottom: 20px;
+  margin: auto auto 20px auto;
+  width: 100%;
+  max-width: 700px;
 }
 
 .search_input {
@@ -201,16 +224,24 @@ select {
 }
 
 .timetable_area {
-  width: 100%;
-  margin: -20px auto 8px auto;
-  height: 70px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 94%;
+  margin: 10px auto;
+  height: 40px;
+  form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
-.timetable_item {
+.timetable_items {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 700px;
 }
 
 .timetable_wday_select,
@@ -240,13 +271,12 @@ select {
 }
 
 .timetable_button {
-  background-color: dimgray;
+  background-color: #444444;
 }
 
 .table_area {
   width: 100%;
   margin: auto;
-  margin-top: -15px;
 }
 
 .table_items {
@@ -321,6 +351,12 @@ select {
   margin-right: 20px;
 }
 
+.program_detail_star {
+  border-top: 1px solid #dddddd;
+  margin: -6px auto 10px auto;
+  background-color: white;
+}
+
 .program_detail_area {
   line-height: 24px;
   margin: 10px auto 0px auto;
@@ -380,9 +416,11 @@ select {
   width: 95%;
   margin: auto;
   margin-top: 20px;
+  font-size: 14px;
+  color: dimgray;
 }
 .post_corner_title {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .post_field {
@@ -417,9 +455,57 @@ select {
   margin: 20px 0px;
 }
 
+.dummy_button {
+  border: none;
+  background-color: dimgray;
+  width: 95%;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px auto;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 3px;
+}
+
+.profile_area {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile_content {
+  display: flex;
+  align-items: center;
+}
+
+.profile_image {
+  width: 20%;
+  max-width: 100px;
+  margin: 0px 30px 0px 0px;
+  img {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+}
+
+.profile_email {
+  color: dimgray;
+  font-weight: bold;
+}
+
+.profile_button a {
+  display: block;
+  background-color: #8f8f8f;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 15px;
+  text-decoration: none;
+  margin: 5px 0px;
+}
+
 .tabs {
   display: flex;
-  margin: 20px -3% 30px -3%;
+  margin: 0px -3% 20px -3%;
   width: 106%;
 }
 
@@ -448,7 +534,7 @@ select {
   border: 1px solid;
   margin-top: 20px;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 3px;
   overflow: hidden;
   box-shadow: 2px 2px 2px 2px;
 }
@@ -465,7 +551,7 @@ select {
 
 .mail_item,
 .mail_content {
-  margin: 0px 5px;
+  margin: 0px 10px;
   color: dimgray;
   border-bottom: 0.5px solid;
   height: 45px;
@@ -484,6 +570,18 @@ select {
   margin-bottom: 20px;
   height: auto;
   border-bottom: none;
+}
+
+.profile_edit_link a {
+  display: block;
+  background-color: #8f8f8f;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 20px 0px 30px 0px;
 }
 
 .posted_mail {

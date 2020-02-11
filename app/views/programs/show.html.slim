@@ -1,40 +1,50 @@
-p#notice
-  = notice
-div.program_detail_area
-  div.program_station
-    = @program.station
-  div.program_title
-    = @program.title
-  = image_tag @program.image, class: "program_image"
-  div.program_line
-    .program_column
-      | 出演者
-    .program_value
-      = @program.cast
-  div.program_line
-    .program_column
-      | 放送日時
-    .program_value.program_airtime
-      = @program.on_air_wday.name + " "
-      = @program.airtime
-  div.program_line
-    .program_column
-      | 番組HP
-    .program_value
-      = link_to omit_words(@program.hp, 26), @program.hp, target: "_blank"
-  div.program_line
-    .program_column
-      | 番組概要
-    .program_value
-      = @program.memo
-  div.program_line
-    .program_column
-      | メールアドレス
-    .program_value
-      = mail_to "#{@program.email}", @program.email
+= render "programs/search_results/search_bar"
+.contents
+  p#notice
+    = notice
+  .program_detail_area#like
+    .program_station
+      = @program.station
+    .program_title
+      = @program.title
+    = image_tag @program.image, class: "program_image"
+    - if current_user
+      .program_detail_star
+        like-button :user-id="#{current_user.id}" :program-id="#{@program.id}"
+    .program_line
+      .program_column
+        | 出演者
+      .program_value
+        = @program.cast
+    .program_line
+      .program_column
+        | 放送日時
+      .program_value.program_airtime
+        = @program.on_air_wday.display_str.name + " "
+        = @program.airtime
+    .program_line
+      .program_column
+        | 番組HP
+      .program_value
+        = link_to omit_words(@program.hp, 26), @program.hp, target: "_blank"
+    .program_line
+      .program_column
+        | 番組概要
+      .program_value
+        = @program.memo
+    .program_line
+      .program_column
+        | メールアドレス
+      .program_value
+        = mail_to "#{@program.email}", @program.email
 
-= render "corners/index", corners: @corners
-= link_to "コーナーを追加する", new_corner_path(program_id: @program)
-= link_to 'Edit', edit_program_path(@program)
-|  | 
-= link_to 'Back', programs_path
+  = render "corners/index", corners: @corners
+  = link_to '番組表/検索結果に戻る', :back
+  br
+  br
+  br
+  = link_to "コーナーを追加", new_corner_path(program_id: @program)
+  br
+  = link_to 'プログラムの編集', edit_program_path(@program)
+  |  | 
+  br

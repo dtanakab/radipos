@@ -10,7 +10,8 @@ table.table_area
             .program_location
               = program.station
               .program_datetime.program_airtime
-                = program.on_air_wday.name + " "
+                = program.on_air_wday.display_str + " "
                 = program.airtime
-          .star_area
-            like-button :user-id="#{current_user.id}" :program-id="#{program.id}"
+          - if current_user
+            .star_area
+              like-button :user-id="#{current_user.id}" :program-id="#{program.id}"
