@@ -2,7 +2,6 @@
 
 class Program < ApplicationRecord
   has_many :corners
-  has_many :favorites, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_one_attached :image
   belongs_to :on_air_wday

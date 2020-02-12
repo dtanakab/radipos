@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :likes, only: %i(index), controller: "users/likes"
     resources :posted_mails, only: %i(index), controller: "users/posted_mails"
   end
-  resources :programs, only: %i[show index edit update new create] do
+  resources :programs do
     collection do
       resources :search_results, only: %i(index), controller: "programs/search_results"
       resources :timetables, only: %i(index), controller: "programs/timetables"
@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   end
   resources :corners
   resources :posts, only: %i[create]
-  resources :favorites, only: %i[create destroy]
   resource :privacy, only: %i[show]
   resource :term, only: %i[show]
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?

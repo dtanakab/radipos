@@ -1,4 +1,0 @@
-.favorite
-  = form_with(model:Favorite, url: favorites_path) do |f|
-    = f.hidden_field :program_id, value: program.id
-    = f.submit "追加", name: nil
