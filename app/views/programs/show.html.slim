@@ -40,11 +40,3 @@
 
   = render "corners/index", corners: @corners
   = link_to '番組表/検索結果に戻る', :back
-  br
-  br
-  br
-  = link_to "コーナーを追加", new_corner_path(program_id: @program)
-  br
-  = link_to 'プログラムの編集', edit_program_path(@program)
-  |  | 
-  = link_to "プログラムの削除", program_path, method: :delete

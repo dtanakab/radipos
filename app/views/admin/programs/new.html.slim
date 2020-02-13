@@ -1,0 +1,6 @@
+.contents
+  h1 管理画面
+  h1
+    | ラジオ番組を追加
+  = render 'admin/programs/form', program: @program
+  = link_to '番組に戻る', admin_program_path(@program)

@@ -1,0 +1,55 @@
+.sample_mail_area
+  .mail_title
+    | ラジオメール送信イメージ
+  .mail_item
+    .mail_column
+      | 宛先： 
+    .mail_address
+      | 番組メールアドレス:自動入力
+  .mail_item
+    .mail_column
+      | Cc： 
+    .mail_address
+      = user.email
+  .mail_item
+    .mail_column
+      | 件名： 
+    .mail_subject
+      | xxのコーナー:メール送信時に変更/入力
+  .mail_content
+    | ラジオネーム→
+    = user.radio_name
+    - if user.age_and_gender? || user.account_information?
+      | (
+      = t("enums.user.about_age.#{user.about_age}") + user.gender
+      | )
+    br
+    br
+    | メール内容:メール送信時に入力
+    br
+    br
+    - if user.account_information?
+      | 〒
+      = user.postcode
+      br
+      | 住所：
+      = user.address
+      br
+      | 本名：
+      = user.full_name
+      br
+      | 電話番号：
+      = user.tel
+      br
+    br
+    | ------------------------------------------------
+    br
+    | ※ 本メールはラジオメール投稿サービス
+    br
+    | 　radipos.siteから送信されています。
+    br
+    | 　メール内容に関するお問い合わせは、
+    br
+    | 　Ccのメールアドレスまでお願いいたします。
+    br
+    | ------------------------------------------------

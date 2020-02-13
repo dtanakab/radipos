@@ -1,0 +1,11 @@
+.contents
+  h2
+    | パスワードを忘れた場合
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field
+      | Radiposアカウントに登録しているEメールアドレスを入力してください。
+      br
+      = f.email_field :email, autofocus: true, autocomplete: "email", size: "50"
+    .actions
+      = f.submit "パスワード初期化のメールを送る"

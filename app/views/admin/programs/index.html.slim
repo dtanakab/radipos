@@ -1,0 +1,13 @@
+h1 管理画面
+.top_image
+  = image_tag ("/assets/top")
+
+.contents
+  p#notice
+    = notice.html_safe if notice
+  h2
+    | 人気おすすめ番組一覧
+  = render "table", programs: @programs
+  = paginate @programs
+  br
+  = link_to '番組を新たに追加', new_admin_program_path

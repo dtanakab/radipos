@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  before_action :require_login
   def create
     @post = current_user.posts.new(post_params)
     if @post.subject.nil?

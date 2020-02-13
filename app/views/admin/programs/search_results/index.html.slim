@@ -1,0 +1,11 @@
+h1 管理画面
+= render "programs/search_results/search_bar"
+.contents
+  h2
+    = "'#{params[:word]}'の検索結果　"
+  = paginate @search_results, position: "top"
+  = render "programs/table", programs: @search_results if @search_results.any?
+  = paginate @search_results, position: "bottom"
+
+  br
+  = link_to '番組を新たに追加', new_admin_program_path

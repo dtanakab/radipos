@@ -1,0 +1,6 @@
+h1 管理画面
+.contents
+  h1
+    | 番組の編集
+  = render 'admin/programs/form', program: @program
+  = link_to '番組に戻る', admin_program_path(@program)

@@ -1,0 +1,29 @@
+.contents
+  .form_area
+    h2
+      | ログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form_item
+        = f.label "メールアドレス"
+        = f.email_field :email, autofocus: true, autocomplete: "email", size: "50", class: "form_input"
+      .form_item
+        | パスワード　
+        = link_to "(パスワードを忘れた場合)", new_password_path(resource_name)
+        br
+        = f.password_field :password, autocomplete: "current-password", size: "50", class: "form_input"
+      - if devise_mapping.rememberable?
+        .form_textbox
+          = f.check_box :remember_me
+          | ログインしたままにする
+      .form_item
+        = f.submit "ログイン", class: "button"
+        br
+      .form_textbox
+        | 会員登録/ログインすることにより、Radiposの
+        = link_to "利用規約", term_path
+        | および
+        = link_to "プライバシーポリシー", privacy_path
+        | に同意したとみなされます。
+      .form_textbox
+        | Radiposを初めて使いますか？ 　
+        = link_to "会員登録▶︎", new_user_registration_path()

@@ -10,11 +10,11 @@
     "rails-ujs": "^5.2.4-1",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.11",
-    "vue-loader": "^15.8.3",
+    "vue-loader": "^15.9.0",
     "vue-template-compiler": "^2.6.11"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.3"
   }
 }

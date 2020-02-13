@@ -5,11 +5,11 @@
   .tab_area
     .tabs
       .tab_icon
-        =link_to image_tag("/assets/setting_icon"), current_user
+        =link_to image_tag("setting_icon.png"), current_user
       .tab_icon
-        =link_to image_tag("/assets/blank_star_icon"), user_likes_path(current_user)
+        =link_to image_tag("blank_star_icon.png"), user_likes_path(current_user)
       .tab_icon.selected_icon
-        =link_to image_tag("/assets/sended_icon_selected"), user_posted_mails_path(current_user)
+        =link_to image_tag("sended_icon_selected.png"), user_posted_mails_path(current_user)
   h2
     | 投稿したメール(
     = @posted_mails.size.to_s

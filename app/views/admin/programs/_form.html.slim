@@ -1,0 +1,41 @@
+= form_with(model: [:admin, program], local: true) do |f|
+  - if program.errors.any?
+    #error_explanation
+      h2
+        = pluralize(program.errors.count, "error")
+        |  prohibited this program from being saved:
+      ul
+        - program.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = f.label "放送局"
+    = f.select :station, ["ニッポン放送", "TBSラジオ", "文化放送"]
+  .field
+    = f.label "番組タイトル"
+    = f.text_field :title
+  .field
+    = f.label "番組概要"
+    = f.text_area :memo, rows: 10, cols: 50
+  .field
+    = f.label "番組メールアドレス"
+    = f.email_field :email
+  .field
+    = f.label "キャスト"
+    = f.text_field :cast
+  .field
+    = f.label "放送曜日（日曜日=7）"
+    = f.number_field :on_air_wday_id
+  .field
+    = f.label "放送時刻"
+    = f.time_select :starts_at, time_separator: "：", minute_step: 15
+    | ~
+    = f.time_select :ends_at, time_separator: "：", minute_step: 15
+  .field
+    = f.label "番組ホームページ"
+    = f.text_field :hp
+  .field
+    = f.label "番組イメージ画像"
+    = f.file_field :image
+  .actions
+    = f.submit

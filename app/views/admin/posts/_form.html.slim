@@ -1,0 +1,11 @@
+.corner_form_box
+    .post_column.post_corner_title
+      = link_to corner.title, edit_admin_corner_path(corner)
+    .post_column
+      | メール件名（適宜ご変更ください）
+    .post_field
+      = corner.subject
+    .post_column
+      | 投稿内容
+    .post_field
+      = corner.introduction

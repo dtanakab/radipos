@@ -10,10 +10,7 @@ class Program < ApplicationRecord
     regular_corner = self.corners.new(
       { title: "ふつおた（普通のお便り）/テーマメール/リアクションメール",
         subject: "ふつおた/テーマメール/リアクションメール",
-        introduction: "XXXXさん、こんばんは！
-        \n今日のテーマは、「明日絶対にやりたいこと」ですが、
-        \n〜は絶対にやりたいと思っています！
-        \nXXXXさんは、〜をどうしていますか？",
+        introduction: "XXXXさん、こんばんは！ 今日のテーマは、「明日絶対にやりたいこと」ですが、〜は絶対にやりたいと思っています！ XXXXさんは、〜をどうしていますか？",
         alive_flag: 1,
         unpostable_reason: nil
       }

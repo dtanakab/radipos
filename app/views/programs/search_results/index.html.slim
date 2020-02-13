@@ -5,6 +5,3 @@
   = paginate @search_results, position: "top"
   = render "programs/table", programs: @search_results if @search_results.any?
   = paginate @search_results, position: "bottom"
-
-  br
-  = link_to 'New Program', new_program_path

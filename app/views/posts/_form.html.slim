@@ -9,7 +9,7 @@
 .corner_form_box
   = form_with(model: Post, url:posts_path, local: true) do |f|
     .post_column.post_corner_title
-      = link_to corner.title, edit_corner_path(corner)
+      = corner.title
     = f.label "メール件名（適宜ご変更ください）", class: "post_column"
     .post_field
       = f.text_field :subject, value: corner.subject, size: 60, class: "post_input"

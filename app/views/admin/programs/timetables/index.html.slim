@@ -1,0 +1,8 @@
+h1 管理画面
+= render "programs/search_results/search_bar"
+.contents
+  h2
+    = "#{wday_str(@wday)} #{timeframe_str(@timeframe)}の番組"
+  = render "programs/table", programs: @programs if @programs.any?
+  br
+  = link_to '番組を新たに追加', new_admin_program_path

@@ -11,5 +11,5 @@ set :deploy_to, "/opt/radipos"
 
 set :rbenv_ruby, "2.6.5"
 
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "db/production"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "db/production", "storage"
 append :linked_files, "config/master.key", ".env"

@@ -5,11 +5,11 @@
   .tab_area
     .tabs
       .tab_icon.selected_icon
-        =link_to image_tag("/assets/setting_icon_selected"), current_user
+        =link_to image_tag("setting_icon_selected.png"), current_user
       .tab_icon
-        =link_to image_tag("/assets/blank_star_icon"), user_likes_path(current_user)
+        =link_to image_tag("blank_star_icon.png"), user_likes_path(current_user)
       .tab_icon
-        =link_to image_tag("/assets/sended_icon"), user_posted_mails_path(current_user)
+        =link_to image_tag("sended_icon.png"), user_posted_mails_path(current_user)
 
   .setting_area
     h2
