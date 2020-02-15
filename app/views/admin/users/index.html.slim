@@ -1,0 +1,22 @@
+h2 
+  | ユーザー一覧(ユーザー数：
+  = @users.size.to_s + "名、投稿数："
+  = @posts.size.to_s + "件)"
+table
+  tbody
+      tr
+        th ユーザーID
+        th ユーザーメールアドレス
+        th マイリスト数
+        th 投稿数
+      - @users.each do |user|
+        tr
+          td
+            = user.id.to_s + "："
+          td
+            = user.email
+          td
+            = user.likes.size
+          td
+            = user.posts.size
+        br

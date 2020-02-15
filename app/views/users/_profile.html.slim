@@ -12,3 +12,8 @@
         = link_to "メールアドレス/パスワードを変更", edit_user_registration_path
       .profile_item.profile_leave
         = link_to "退会する", user_registration_path, data: { confirm: "Radiposを退会し、本当にアカウントを削除しますか?" }, method: :delete
+        - if admin_login?
+          br
+          = link_to "管理者用番組一覧ページ", admin_programs_path
+          br
+          = link_to "管理者用ユーザ一覧ページ", admin_users_path

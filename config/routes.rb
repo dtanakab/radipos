@@ -22,7 +22,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: %i[index edit update destroy]
-    resources :programs
+    resources :programs do
+      collection do
+        resources :search_results, only: %i[index], controller: "programs/search_results"
+        resources :timetables, only: %i[index], controller: "programs/timetables"
+      end
+    end
     resources :corners
   end
 

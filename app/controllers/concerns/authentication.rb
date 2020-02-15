@@ -8,7 +8,7 @@ module Authentication
   end
 
   def admin_login?
-    logged_in? && current_user.admin?
+    current_user && current_user.admin?
   end
 
   def require_admin_login
