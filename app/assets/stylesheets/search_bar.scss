@@ -1,0 +1,88 @@
+.second_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #cccccc;
+  margin: 0px;
+  width: 100%;
+  height: 110px;
+}
+
+.search_area {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 0px auto;
+  height: 40px;
+  width: 94%;
+  form {
+    width: 100%;
+  }
+}
+
+.search_items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto auto 20px auto;
+  width: 100%;
+  max-width: 700px;
+}
+
+.search_input {
+  width: 76%;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 1px;
+  border-right: none;
+}
+
+.timetable_area {
+  display: flex;
+  justify-content: center;
+  width: 94%;
+  margin: 10px auto;
+  height: 40px;
+  form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.timetable_items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 700px;
+}
+
+.timetable_wday_select,
+.timetable_time_select {
+  display: block;
+  background-color: white;
+  height: 37px;
+  font-size: 14px;
+}
+
+.timetable_wday_select {
+  width: 25%;
+}
+
+.timetable_time_select {
+  width: 45%;
+}
+
+.search_button,
+.timetable_button {
+  width: 20%;
+  height: 30px;
+  color: white;
+  padding: 3px 0px 3px 0px;
+  border-radius: 2px;
+  border-left: none;
+}
+
+.timetable_button {
+  background-color: #444444;
+}

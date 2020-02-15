@@ -3,10 +3,10 @@
 class Users::LikesController < ApplicationController
   before_action :authenticate_user!
   def index
-    like_programs = []
+    @like_programs_all = []
     current_user.likes.each do | like |
-      like_programs << Program.find(like.program_id)
+      @like_programs_all << Program.find(like.program_id)
     end
-    @like_programs = Kaminari.paginate_array(like_programs).page(params[:page])
+    @like_programs = Kaminari.paginate_array(@like_programs_all).page(params[:page])
   end
 end

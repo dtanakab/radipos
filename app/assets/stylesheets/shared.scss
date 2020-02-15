@@ -1,0 +1,105 @@
+body,
+p,
+ol,
+ul,
+td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+a {
+  color: dimgray;
+  text-decoration: underline;
+}
+
+body {
+  background-color: #f3f3f3;
+  color: #333;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 0 5px 7px;
+}
+
+div.field,
+div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+#alert {
+  color: #ff367f;
+}
+
+.field_with_errors {
+  width: 96%;
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 95%;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+label {
+  display: block;
+}
+
+.pagination {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.pagination span {
+  font-weight: bold;
+  margin: 0px 2px;
+}
+
+.pagination a {
+  font-weight: normal;
+  margin: 0px 2px;
+}
+
+.contents {
+  width: 94%;
+  max-width: 700px;
+  padding-top: 5px;
+  margin: auto;
+}

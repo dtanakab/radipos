@@ -1,0 +1,116 @@
+.program_detail_star {
+  border-top: 1px solid #dddddd;
+  margin: -6px auto 10px auto;
+  background-color: white;
+}
+
+.program_detail_area {
+  line-height: 24px;
+  margin: 10px auto 0px auto;
+}
+
+.program_title,
+.radio_mail_title {
+  font-size: 20px;
+  margin: 5px 0px 10px 0px;
+  font-weight: bold;
+}
+
+.program_image {
+  width: 100%;
+}
+
+.program_line {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.6px dashed;
+  border-color: #b8860b;
+  padding: 5px 0px;
+}
+
+.program_column {
+  width: 33%;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.program_value {
+  width: 66%;
+  line-height: 20px;
+}
+
+.radio_mail_title {
+  margin-top: 30px;
+}
+
+.warning {
+  color: #ff367f;
+  margin: 10px 0px 20px 0px;
+}
+
+.corner_form_box {
+  width: 100%;
+  border: 1px solid;
+  border-color: #b8860b;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  background-color: #ffffee;
+}
+
+.post_column {
+  font-weight: bold;
+  width: 95%;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 14px;
+  color: dimgray;
+}
+.post_corner_title {
+  font-size: 16px;
+}
+
+.post_field {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.post_input {
+  width: 94%;
+  min-height: 40px;
+  line-height: 20px;
+  font-size: 14px;
+  border: 1px solid;
+  border-color: dimgray;
+  border-radius: 3px;
+  margin: auto;
+  padding: 1px;
+}
+
+#post_post_mail_setting {
+  font-size: 14px;
+  width: 95%;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.post_button {
+  border: none;
+  width: 95%;
+  margin: 20px 0px;
+}
+
+.dummy_button {
+  border: none;
+  background-color: dimgray;
+  width: 95%;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px auto;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 3px;
+}

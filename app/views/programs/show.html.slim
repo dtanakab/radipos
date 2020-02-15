@@ -39,4 +39,5 @@
         = mail_to "#{@program.email}", @program.email
 
   = render "corners/index", corners: @corners
-  = link_to '番組表/検索結果に戻る', :back
+  .back_link
+    = link_to '前のページに戻る', :back

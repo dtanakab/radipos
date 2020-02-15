@@ -1,0 +1,76 @@
+.table_area {
+  width: 100%;
+  margin: auto;
+}
+
+.table_items {
+  border: solid;
+}
+
+.table_item {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border: 1px solid;
+  border-radius: 4px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.table_item_value {
+  width: 98%;
+}
+
+.program_icon {
+  width: 100%;
+}
+
+.program_bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.program_heading {
+  font-weight: bold;
+  margin: 5px 0px;
+}
+
+.program_location {
+  display: flex;
+  line-height: 24px;
+  color: dimgray;
+}
+
+.program_datetime {
+  margin-left: 20px;
+}
+
+.program_airtime {
+  color: #ff367f;
+}
+
+.star_area {
+  border-top: 1px solid;
+  border-color: #dddddd;
+  color: dimgray;
+  margin: -16px;
+  margin-top: 8px;
+}
+
+.star {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  font-weight: bolder;
+}
+
+.star img {
+  width: 40%;
+  height: 40%;
+  max-width: 30px;
+  max-height: 30px;
+  margin-right: 20px;
+}

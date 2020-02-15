@@ -1,0 +1,58 @@
+.form_area {
+  width: 95%;
+  max-width: 400px;
+  height: 90%;
+  margin: 25px auto;
+  margin-bottom: 30px;
+  border: 1px solid;
+  border-color: dimgray;
+  border-radius: 3px;
+  padding: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h2 {
+    margin-left: 8px;
+  }
+}
+
+.form_item {
+  width: 96%;
+  height: 60px;
+  margin: 0px auto 30px auto;
+  font-size: 14px;
+}
+
+.form_bottom_item {
+  margin-bottom: 10px;
+}
+
+.form_input {
+  width: 96%;
+  height: 50px;
+  padding: 1px;
+  font-size: 16px;
+}
+
+.form_textbox {
+  width: 96%;
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+select {
+  width: 98%;
+  height: 50px;
+  padding: 7px 30px 7px 10px;
+  font-size: 16px;
+  line-height: 1.1em;
+  border: 1px solid;
+  border-color: dimgray;
+  border-radius: 1px;
+  background-repeat: no-repeat;
+  background-size: 12px 10px;
+  background-position: right 10px center;
+  background-color: white;
+}
