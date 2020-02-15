@@ -1,7 +1,10 @@
+= render "programs/search_results/search_bar"
 .top_image
   = image_tag ("top.png")
 
 .contents
+  p#alert
+    = alert.html_safe if alert
   p#notice
     = notice.html_safe if notice
   h2

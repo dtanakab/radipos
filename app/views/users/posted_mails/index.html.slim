@@ -14,4 +14,6 @@
     | 投稿したメール(
     = @posted_mails.size.to_s
     | 件)
-  =render "posts/table", posts: @posted_mails
+  = paginate @posted_mails, position: "top"
+  = render "posts/table", posts: @posted_mails
+  = paginate @posted_mails, position: "bottom"

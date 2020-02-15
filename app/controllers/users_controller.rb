@@ -5,10 +5,6 @@ class UsersController < ApplicationController
   before_action :require_user_themselves
 
   def show
-    @like_programs = []
-    current_user.likes.each do | like |
-      @like_programs << Program.find(like.program_id)
-    end
     if @user.radio_name != ""
       @temp_name = @user.radio_name
     else
