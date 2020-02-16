@@ -2,14 +2,13 @@
 .contents
   =render "users/profile"
   br
-  .tab_area
-    .tabs
-      .tab_icon
-        =link_to image_tag("setting_icon.png"), current_user
-      .tab_icon.selected_icon
-        =link_to image_tag("blank_star_icon_selected.png"), user_likes_path(current_user)
-      .tab_icon
-        =link_to image_tag("sended_icon.png"), user_posted_mails_path(current_user)
+  .profile_tabs
+    .profile_tab
+      =link_to image_tag("setting_icon.png"), current_user
+    .profile_tab.profile_tab_selected
+      =link_to image_tag("blank_star_icon_selected.png"), user_likes_path(current_user)
+    .profile_tab
+      =link_to image_tag("sended_icon.png"), user_posted_mails_path(current_user)
   h2
     | マイリスト(
     = @like_programs_all.size.to_s + "件)"

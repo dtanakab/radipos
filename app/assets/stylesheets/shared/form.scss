@@ -4,17 +4,18 @@
   height: 90%;
   margin: 25px auto;
   margin-bottom: 30px;
-  border: 1px solid;
-  border-color: dimgray;
-  border-radius: 3px;
   padding: 10px;
   padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  h2 {
-    margin-left: 8px;
-  }
+  border: 1px solid;
+  border-color: dimgray;
+  border-radius: 3px;
+}
+
+.form_area h2 {
+  margin-left: 8px;
 }
 
 .form_item {
@@ -24,7 +25,7 @@
   font-size: 14px;
 }
 
-.form_bottom_item {
+.form_submit_area {
   margin-bottom: 10px;
 }
 
@@ -37,8 +38,7 @@
 
 .form_textbox {
   width: 96%;
-  margin: auto;
-  margin-bottom: 20px;
+  margin: auto auto 20px auto;
   font-size: 14px;
 }
 
@@ -46,32 +46,31 @@ select {
   width: 98%;
   height: 50px;
   padding: 7px 30px 7px 10px;
-  font-size: 16px;
-  line-height: 1.1em;
-  border: 1px solid;
-  border-color: dimgray;
-  border-radius: 1px;
   background-repeat: no-repeat;
   background-size: 12px 10px;
   background-position: right 10px center;
   background-color: white;
+  border: 1px solid;
+  border-color: dimgray;
+  border-radius: 1px;
+  line-height: 1.1em;
+  font-size: 16px;
 }
 
 .button,
-.search_button,
+.word_search_button,
 .timetable_button,
 .post_button {
-  -webkit-box-sizing: content-box;
   -webkit-appearance: button;
   appearance: button;
   width: 96.5%;
   height: 50px;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
+  padding: 1px;
   background-color: #0066cc;
   border: none;
-  padding: 1px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
   &::-webkit-search-decoration {
     display: none;
   }

@@ -1,17 +1,22 @@
 = render "programs/search_results/search_bar"
 .contents
+  p#notice
+    = notice.html_safe if notice
+  - if @user.radio_name == ""
+    p#notice
+      | ラジオネームが未設定です！以下のラジオメール設定から登録/変更が可能です。
   =render "profile"
   br
   .tab_area
-    .tabs
-      .tab_icon.selected_icon
+    .profile_tabs
+      .profile_tab.profile_tab_selected
         =link_to image_tag("setting_icon_selected.png"), current_user
-      .tab_icon
+      .profile_tab
         =link_to image_tag("blank_star_icon.png"), user_likes_path(current_user)
-      .tab_icon
+      .profile_tab
         =link_to image_tag("sended_icon.png"), user_posted_mails_path(current_user)
 
-  .setting_area
+  .post_setting_area
     h2
       | ラジオメールの設定
     = render "sample_mail", user:@user

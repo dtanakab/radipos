@@ -14,7 +14,7 @@
       .form_item
         = f.label :password
         = f.password_field :current_password, autocomplete: "password", class: "form_input"
-      .form_item.form_bottom_item
+      .form_item.form_submit_area
         = f.submit "メールアドレスを変更する", class: "button"
     .back_link
       = link_to "マイページに戻る", current_user
@@ -32,7 +32,7 @@
       .form_item
         = f.label "新しいパスワード確認用"
         = f.password_field :password_confirmation, autocomplete: "new-password", class: "form_input"
-      .form_item.form_bottom_item
+      .form_item.form_submit_area
         = f.submit "パスワードを変更する", class: "button"
     .back_link
       = link_to "マイページに戻る", current_user

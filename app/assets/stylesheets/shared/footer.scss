@@ -1,24 +1,24 @@
-.footer_items {
+.footer_links {
+  height: 70px;
+  margin-bottom: 0px;
+  padding: 5px 0px;
   display: flex;
   flex-wrap: wrap;
   align-content: space-around;
   background-color: #cccccc;
-  margin-bottom: 0px;
-  height: 70px;
-  padding: 5px 0px;
 }
 
-.footer_item {
+.footer_link {
   width: 100%;
   text-align: center;
 }
 
 .footer_bottom {
-  background-color: #f3f3f3;
-  color: #acacac;
   height: 25px;
-  line-height: 25px;
   width: 100%;
-  text-align: center;
   padding: 6px 0px;
+  background-color: #f3f3f3;
+  text-align: center;
+  line-height: 25px;
+  color: #acacac;
 }

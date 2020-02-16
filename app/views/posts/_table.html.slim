@@ -1,13 +1,13 @@
 - posts.each do |post|
   .posted_mail
     .posted_program_info
-      .posted_program_image
+      .posted_program_thumbnail
         = link_to image_tag(post.corner.program.image), post.corner.program
       .posted_corner_title
         = link_to post.corner.program.title, post.corner.program
         br
-        | コーナー名：
-        = post.corner.title
+        | メール件名：
+        = post.subject
     .posted_mail_content
       | 【投稿内容】
       br

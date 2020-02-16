@@ -11,31 +11,31 @@
     - if current_user
       .program_detail_star
         like-button :user-id="#{current_user.id}" :program-id="#{@program.id}"
-    .program_line
-      .program_column
+    .program_detail_item
+      .program_detail_column
         | 出演者
-      .program_value
+      .program_detail_value
         = @program.cast
-    .program_line
-      .program_column
+    .program_detail_item
+      .program_detail_column
         | 放送日時
-      .program_value.program_airtime
+      .program_detail_value.program_airtime
         = @program.on_air_wday.display_str + " "
         = @program.airtime
-    .program_line
-      .program_column
+    .program_detail_item
+      .program_detail_column
         | 番組HP
-      .program_value
+      .program_detail_value
         = link_to omit_words(@program.hp, 26), @program.hp, target: "_blank"
-    .program_line
-      .program_column
+    .program_detail_item
+      .program_detail_column
         | 番組概要
-      .program_value
+      .program_detail_value
         = @program.memo
-    .program_line
-      .program_column
+    .program_detail_item
+      .program_detail_column
         | メールアドレス
-      .program_value
+      .program_detail_value
         = mail_to "#{@program.email}", @program.email
 
   = render "corners/index", corners: @corners

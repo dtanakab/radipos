@@ -3,9 +3,9 @@ p,
 ol,
 ul,
 td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 14px;
   line-height: 18px;
+  font-size: 14px;
+  font-family: verdana, arial, helvetica, sans-serif;
 }
 
 a {
@@ -14,16 +14,16 @@ a {
 }
 
 body {
-  background-color: #f3f3f3;
-  color: #333;
-  margin: 0;
   height: 100%;
   width: 100%;
+  margin: 0;
+  background-color: #f3f3f3;
+  color: dimgray;
 }
 
 pre {
-  background-color: #eee;
   padding: 10px;
+  background-color: #eee;
   font-size: 11px;
 }
 
@@ -35,8 +35,8 @@ td {
   padding: 0 5px 7px;
 }
 
-div.field,
-div.actions {
+.field,
+.actions {
   margin-bottom: 10px;
 }
 
@@ -51,31 +51,31 @@ div.actions {
 .field_with_errors {
   width: 96%;
   padding: 2px;
-  background-color: red;
   display: table;
+  background-color: red;
 }
 
 #error_explanation {
   width: 95%;
-  border: 2px solid red;
-  padding: 7px 7px 0;
   margin-bottom: 20px;
+  padding: 7px 7px 0;
   background-color: #f0f0f0;
+  border: 2px solid red;
 }
 
 #error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
   margin: -7px -7px 0;
+  padding: 5px 5px 5px 15px;
   background-color: #c00;
+  text-align: left;
+  font-size: 12px;
   color: #fff;
+  font-weight: bold;
 }
 
 #error_explanation ul li {
-  font-size: 12px;
   list-style: square;
+  font-size: 12px;
 }
 
 label {
@@ -83,25 +83,25 @@ label {
 }
 
 .pagination {
-  text-align: center;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .pagination span {
-  font-weight: bold;
   margin: 0px 2px;
+  font-weight: bold;
 }
 
 .pagination a {
-  font-weight: normal;
   margin: 0px 2px;
+  font-weight: normal;
 }
 
 .contents {
   width: 94%;
   max-width: 700px;
-  padding-top: 5px;
   margin: auto;
+  padding-top: 5px;
 }
 
 .back_link {

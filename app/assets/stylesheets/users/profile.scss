@@ -12,10 +12,11 @@
   width: 20%;
   max-width: 100px;
   margin: 0px 30px 0px 0px;
-  img {
-    width: 100%;
-    margin-bottom: 0px;
-  }
+}
+
+.profile_image img {
+  width: 100%;
+  margin-bottom: 0px;
 }
 
 .profile_email {
@@ -25,10 +26,10 @@
 
 .profile_button a {
   display: block;
-  background-color: #8f8f8f;
-  color: white;
-  border-radius: 5px;
-  padding: 5px 15px;
-  text-decoration: none;
   margin: 5px 0px;
+  padding: 5px 15px;
+  background-color: #8f8f8f;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
 }

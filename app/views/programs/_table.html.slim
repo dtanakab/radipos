@@ -1,17 +1,17 @@
-table.table_area
-  tbody.table_items#like
+table.program_table
+  tbody#like
     - programs.each do |program|
-      tr.table_item
-        td.table_item_value
-          = link_to image_tag(program.image, class: "program_icon"), program_path(program)
-          .program_bottom
-            .program_heading
+      tr.program_card
+        td.program_card_items
+          = link_to image_tag(program.image, class: "program_card_thumbnail"), program_path(program)
+          .program_card_bottom
+            .program_card_title
               = link_to program.title, program_path(program)
-            .program_location
+            .program_card_info
               = program.station
-              .program_datetime.program_airtime
+              .program_card_datetime.program_card_airtime
                 = program.on_air_wday.display_str + " "
                 = program.airtime
           - if current_user
-            .star_area
+            .program_card_star_area
               like-button :user-id="#{current_user.id}" :program-id="#{program.id}"

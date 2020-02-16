@@ -1,25 +1,25 @@
 .posted_mail {
+  width: 100%;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  background-color: white;
   border: 1px solid;
   border-radius: 3px;
-  margin-bottom: 15px;
-  background-color: white;
 }
 
 .posted_program_info {
+  margin: 5px 0px 5px 5px;
   display: flex;
   align-items: center;
-  margin: 5px 0px 5px 5px;
 }
 
-.posted_program_image {
+.posted_program_thumbnail {
   width: 40%;
   max-width: 100px;
 }
 
-.posted_program_image img {
+.posted_program_thumbnail img {
   width: 100%;
 }
 
@@ -29,9 +29,9 @@
 }
 
 .posted_mail_content {
-  border-top: 1px dashed;
   margin-left: 5px;
   padding-top: 5px;
+  border-top: 1px dashed;
   line-height: 20px;
 }
 

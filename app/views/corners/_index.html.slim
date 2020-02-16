@@ -1,5 +1,4 @@
-div.corner_table_area
-  h2.radio_mail_title
-    | ラジオメール投稿
-  - corners.each do |corner|
-    = render "posts/form", corner: corner
+h2.posts_area_title
+  | ラジオメール投稿
+- corners.each do |corner|
+  = render "posts/form", corner: corner

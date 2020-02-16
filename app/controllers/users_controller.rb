@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     if @user.update(user_params)
-      redirect_to @user, notice: t("messages.updated")
+      redirect_to @user, notice: "ラジオメールの設定が更新されました"
     else
       render :show
     end

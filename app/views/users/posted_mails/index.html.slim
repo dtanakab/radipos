@@ -1,14 +1,14 @@
 = render "programs/search_results/search_bar"
 .contents
-  =render "users/profile"
+  = render "users/profile"
   br
   .tab_area
-    .tabs
-      .tab_icon
+    .profile_tabs
+      .profile_tab
         =link_to image_tag("setting_icon.png"), current_user
-      .tab_icon
+      .profile_tab
         =link_to image_tag("blank_star_icon.png"), user_likes_path(current_user)
-      .tab_icon.selected_icon
+      .profile_tab.profile_tab_selected
         =link_to image_tag("sended_icon_selected.png"), user_posted_mails_path(current_user)
   h2
     | 投稿したメール(

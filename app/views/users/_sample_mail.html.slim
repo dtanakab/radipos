@@ -1,22 +1,22 @@
 .sample_mail_area
-  .mail_title
+  .sample_mail_area_title
     | ラジオメール送信イメージ
-  .mail_item
-    .mail_column
+  .sample_mail_item
+    .sample_mail_column
       | 宛先： 
-    .mail_address
+    .sample_mail_address
       | 番組メールアドレス:自動入力
-  .mail_item
-    .mail_column
+  .sample_mail_item
+    .sample_mail_column
       | Cc： 
-    .mail_address
+    .sample_mail_address
       = user.email
-  .mail_item
-    .mail_column
+  .sample_mail_item
+    .sample_mail_column
       | 件名： 
-    .mail_subject
+    .sample_mail_subject
       | xxのコーナー:メール送信時に変更/入力
-  .mail_content
+  .sample_mail_content
     | ラジオネーム→
     = user.radio_name
     - if user.age_and_gender? || user.account_information?
@@ -29,6 +29,8 @@
     br
     br
     - if user.account_information?
+      | ==================================
+      br
       | 〒
       = user.postcode
       br
@@ -41,8 +43,9 @@
       | 電話番号：
       = user.tel
       br
+      | ==================================
     br
-    | ------------------------------------------------
+    | --------------------------------------------------------------
     br
     | ※ 本メールはラジオメール投稿サービス
     br
@@ -52,4 +55,4 @@
     br
     | 　Ccのメールアドレスまでお願いいたします。
     br
-    | ------------------------------------------------
+    | --------------------------------------------------------------

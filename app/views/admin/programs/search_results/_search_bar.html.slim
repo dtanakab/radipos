@@ -1,9 +1,9 @@
-.second_header
-  .search_area
+.search_bar
+  .word_search_area
     = form_tag(admin_search_results_path, method: "get") do
-      .search_items
-        = text_field_tag "word", params[:word], placeholder: "番組名・キャスト・放送局で検索", size: 40, class: "search_input"
-        = submit_tag "検索", name: nil, class: "search_button"
+      .word_search_items
+        = text_field_tag "word", params[:word], placeholder: "番組名・キャスト・放送局で検索", size: 40, class: "word_search_input"
+        = submit_tag "検索", name: nil, class: "word_search_button"
 
   .timetable_area
     = form_tag(admin_timetables_path, method: "get") do

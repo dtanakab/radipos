@@ -1,57 +1,56 @@
-.setting_area {
+.post_setting_area {
   margin-bottom: 20px;
 }
 
 .sample_mail_area {
-  border: 1px solid;
   margin-top: 20px;
   background-color: white;
+  box-shadow: 2px 2px 2px 2px;
+  border: 1px solid;
   border-radius: 3px;
   overflow: hidden;
-  box-shadow: 2px 2px 2px 2px;
 }
 
-.mail_title {
-  text-align: center;
+.sample_mail_area_title {
+  height: 50px;
   background-color: #f3f3f3;
   border-bottom: 1px solid;
   border-color: dimgray;
-  font-weight: bolder;
-  height: 50px;
+  text-align: center;
   line-height: 50px;
+  font-weight: bolder;
 }
 
-.mail_item,
-.mail_content {
-  margin: 0px 10px;
-  color: dimgray;
-  border-bottom: 0.5px solid;
+.sample_mail_item,
+.sample_mail_content {
   height: 45px;
-  line-height: 45px;
+  margin: 0px 10px;
   display: flex;
+  border-bottom: 0.5px solid;
+  line-height: 45px;
+  color: dimgray;
 }
 
-.mail_address,
-.mail_subject {
+.sample_mail_address,
+.sample_mail_subject {
   color: #3399ff;
 }
 
-.mail_content {
-  line-height: 16px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+.sample_mail_content {
   height: auto;
+  margin: 10px 10px 20px 10px;
+  line-height: 16px;
   border-bottom: none;
 }
 
 .profile_edit_link a {
   display: block;
-  background-color: #8f8f8f;
-  color: white;
-  border-radius: 5px;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
   margin: 20px 0px 5px 0px;
+  padding: 10px 15px;
+  background-color: #8f8f8f;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
 }

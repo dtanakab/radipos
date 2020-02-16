@@ -22,6 +22,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:content, :corner_id, :post_mail_setting)
+      params.require(:post).permit(:subject, :content, :corner_id, :post_mail_setting)
     end
 end
