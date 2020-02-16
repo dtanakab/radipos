@@ -1,0 +1,41 @@
+.posted_mail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  background-color: white;
+}
+
+.posted_program_info {
+  display: flex;
+  align-items: center;
+  margin: 5px 0px 5px 5px;
+}
+
+.posted_program_image {
+  width: 40%;
+  max-width: 100px;
+}
+
+.posted_program_image img {
+  width: 100%;
+}
+
+.posted_corner_title {
+  margin: 0px 0px 5px 10px;
+  line-height: 20px;
+}
+
+.posted_mail_content {
+  border-top: 1px dashed;
+  margin-left: 5px;
+  padding-top: 5px;
+  line-height: 20px;
+}
+
+.posted_datetime {
+  margin: 0px 0px 5px 5px;
+  line-height: 20px;
+}

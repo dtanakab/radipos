@@ -1,0 +1,22 @@
+.tabs {
+  display: flex;
+  margin: 0px -3% 20px -3%;
+  width: 106%;
+}
+
+.tab_icon {
+  width: 33.3%;
+  text-align: center;
+  margin: 0px;
+  background-color: #fef298;
+}
+
+.tab_icon img {
+  height: 25px;
+  margin: 8px auto;
+  display: block;
+}
+
+.selected_icon {
+  background-color: #ffe100;
+}

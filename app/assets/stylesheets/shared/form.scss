@@ -56,3 +56,26 @@ select {
   background-position: right 10px center;
   background-color: white;
 }
+
+.button,
+.search_button,
+.timetable_button,
+.post_button {
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  width: 96.5%;
+  height: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #0066cc;
+  border: none;
+  padding: 1px;
+  &::-webkit-search-decoration {
+    display: none;
+  }
+  &::focus {
+    outline-offset: -2px;
+  }
+}

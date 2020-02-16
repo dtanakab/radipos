@@ -1,0 +1,57 @@
+.setting_area {
+  margin-bottom: 20px;
+}
+
+.sample_mail_area {
+  border: 1px solid;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 2px 2px 2px 2px;
+}
+
+.mail_title {
+  text-align: center;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid;
+  border-color: dimgray;
+  font-weight: bolder;
+  height: 50px;
+  line-height: 50px;
+}
+
+.mail_item,
+.mail_content {
+  margin: 0px 10px;
+  color: dimgray;
+  border-bottom: 0.5px solid;
+  height: 45px;
+  line-height: 45px;
+  display: flex;
+}
+
+.mail_address,
+.mail_subject {
+  color: #3399ff;
+}
+
+.mail_content {
+  line-height: 16px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: auto;
+  border-bottom: none;
+}
+
+.profile_edit_link a {
+  display: block;
+  background-color: #8f8f8f;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 20px 0px 5px 0px;
+}
