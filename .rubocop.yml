@@ -3,43 +3,37 @@ require:
   - rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6.3
   # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
   # to ignore them, so only the ones explicitly set in this file are enabled.
   DisabledByDefault: true
   Exclude:
-    - "**/tmp/**/*"
     - "**/templates/**/*"
     - "**/vendor/**/*"
     - "actionpack/lib/action_dispatch/journey/parser.rb"
     - "railties/test/fixtures/tmp/**/*"
-    - "actionmailbox/test/dummy/**/*"
-    - "actiontext/test/dummy/**/*"
-    - "**/node_modules/**/*"
+    - "app/views/**/*"
+    - "node_modules/**/*"
+    - "db/schema.rb"
+    - "storage/**/*"
+    - "tmp/**/*"
 
 Performance:
   Exclude:
-    - "**/test/**/*"
-
-# Prefer assert_not over assert !
-Rails/AssertNot:
-  Include:
-    - "**/test/**/*"
-
-# Prefer assert_not_x over refute_x
-Rails/RefuteMethods:
-  Include:
     - "**/test/**/*"
 
 # Prefer &&/|| over and/or.
 Style/AndOr:
   Enabled: true
 
+# Do not use braces for hash literals when they are the last argument of a
+# method call.
+Style/BracesAroundHashParameters:
+  Enabled: true
+  EnforcedStyle: context_dependent
+
 # Align `when` with `case`.
 Layout/CaseIndentation:
-  Enabled: true
-
-Layout/ClosingHeredocIndentation:
   Enabled: true
 
 # Align comments with method definitions.
@@ -59,10 +53,6 @@ Layout/EndAlignment:
 Layout/EmptyLineAfterMagicComment:
   Enabled: true
 
-Layout/EmptyLinesAroundAccessModifier:
-  Enabled: true
-  EnforcedStyle: only_before
-
 Layout/EmptyLinesAroundBlockBody:
   Enabled: true
 
@@ -78,11 +68,11 @@ Layout/EmptyLinesAroundMethodBody:
 Layout/EmptyLinesAroundModuleBody:
   Enabled: true
 
-# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
-Style/HashSyntax:
+Layout/FirstArgumentIndentation:
   Enabled: true
 
-Layout/FirstArgumentIndentation:
+# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
+Style/HashSyntax:
   Enabled: true
 
 # Method definitions after `private` or `protected` isolated calls need one
@@ -104,19 +94,16 @@ Layout/SpaceAfterColon:
 Layout/SpaceAfterComma:
   Enabled: true
 
-Layout/SpaceAfterSemicolon:
-  Enabled: true
-
 Layout/SpaceAroundEqualsInParameterDefault:
   Enabled: true
 
 Layout/SpaceAroundKeyword:
   Enabled: true
 
-Layout/SpaceBeforeComma:
+Layout/SpaceAroundOperators:
   Enabled: true
 
-Layout/SpaceBeforeComment:
+Layout/SpaceBeforeComma:
   Enabled: true
 
 Layout/SpaceBeforeFirstArg:
@@ -138,12 +125,12 @@ Style/FrozenStringLiteralComment:
     - "actionpack/test/**/*.builder"
     - "actionpack/test/**/*.ruby"
     - "activestorage/db/migrate/**/*.rb"
-    - "activestorage/db/update_migrate/**/*.rb"
-    - "actionmailbox/db/migrate/**/*.rb"
-    - "actiontext/db/migrate/**/*.rb"
 
 Style/RedundantFreeze:
   Enabled: true
+  Exclude:
+    - "actionpack/lib/action_dispatch/journey/router/utils.rb"
+    - "activerecord/lib/active_record/connection_adapters/sqlite3_adapter.rb"
 
 # Use `foo {}` not `foo{}`.
 Layout/SpaceBeforeBlockBraces:
@@ -170,7 +157,7 @@ Style/StringLiterals:
 Layout/Tab:
   Enabled: true
 
-# Empty lines should not have any spaces.
+# Blank lines should not have any spaces.
 Layout/TrailingEmptyLines:
   Enabled: true
 
@@ -182,20 +169,8 @@ Layout/TrailingWhitespace:
 Style/RedundantPercentQ:
   Enabled: true
 
-Lint/AmbiguousOperator:
-  Enabled: true
-
-Lint/AmbiguousRegexpLiteral:
-  Enabled: true
-
-Lint/ErbNewArguments:
-  Enabled: true
-
 # Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
 Lint/RequireParentheses:
-  Enabled: true
-
-Lint/ShadowingOuterLocalVariable:
   Enabled: true
 
 Lint/RedundantStringCoercion:
@@ -204,16 +179,7 @@ Lint/RedundantStringCoercion:
 Lint/UriEscapeUnescape:
   Enabled: true
 
-Lint/UselessAssignment:
-  Enabled: true
-
-Lint/DeprecatedClassMethods:
-  Enabled: true
-
 Style/ParenthesesAroundCondition:
-  Enabled: true
-
-Style/RedundantBegin:
   Enabled: true
 
 Style/RedundantReturn:
@@ -244,9 +210,6 @@ Performance/EndWith:
   Enabled: true
 
 Performance/RegexpMatch:
-  Enabled: true
-
-Performance/ReverseEach:
   Enabled: true
 
 Performance/UnfreezeString:

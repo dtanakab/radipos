@@ -27,7 +27,7 @@ module ProgramsHelper
     if item.nil?
       ""
     elsif item.length >= count
-      item[0, count-1] + "..."
+      item[0, count - 1] + "..."
     else
       item
     end

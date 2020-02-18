@@ -32,8 +32,20 @@
 .form_input {
   width: 96%;
   height: 50px;
-  padding: 1px;
+  box-sizing: border-box;
+  padding: 1px 8px;
   font-size: 16px;
+  &::placeholder {
+    position: relative;
+    left: 0em;
+    color: #aab7c4;
+  }
+}
+
+::placeholder {
+  position: relative;
+  left: 0em;
+  color: #aab7c4;
 }
 
 .form_textbox {
@@ -43,7 +55,7 @@
 }
 
 select {
-  width: 98%;
+  width: 96%;
   height: 50px;
   padding: 7px 30px 7px 10px;
   background-repeat: no-repeat;
@@ -63,8 +75,9 @@ select {
 .post_button {
   -webkit-appearance: button;
   appearance: button;
-  width: 96.5%;
+  width: 96%;
   height: 50px;
+  box-sizing: border-box;
   padding: 1px;
   background-color: #0066cc;
   border: none;

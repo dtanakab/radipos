@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::LikesController < ApplicationController
   def index
     render json: Like.filter_by_program(params[:program_id]).select(:id, :user_id, :program_id)

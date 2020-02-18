@@ -9,7 +9,7 @@ class ProgramTest < ActiveSupport::TestCase
 
   test "set_regular_corner" do
     programs(:program1).set_regular_corner
-    corner = programs(:program1).corners.first
+    corner = programs(:program1).corners.last
     assert_equal "ふつおた/テーマメール/リアクションメール", corner.subject
   end
 

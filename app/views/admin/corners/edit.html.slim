@@ -1,10 +1,10 @@
 .contents
-  h1 管理画面
   h1
+    | 管理画面
     = @corner.program.title
     | のコーナー
     = "「" + @corner.title + "」を編集"
-  = render 'admin/corners/form', corner: @corner
+  = render "admin/corners/form", corner: @corner
   = link_to "コーナー削除", admin_corner_path(@corner), method: :delete
   br
-  = link_to '番組に戻る', admin_program_path(@corner.program)
+  = link_to "番組に戻る", admin_program_path(@corner.program)

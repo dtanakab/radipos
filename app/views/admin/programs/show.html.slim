@@ -40,14 +40,14 @@ h1 管理画面
         = mail_to "#{@program.email}", @program.email
 
   = render "admin/corners/index", corners: @corners
-  = link_to '番組表/検索結果に戻る', :back
+  = link_to "番組表/検索結果に戻る", :back
   br
   br
   br
   = link_to "コーナーを追加", new_admin_corner_path(program_id: @program)
   br
-  = link_to '番組の編集', edit_admin_program_path
-  |  | 
-  = link_to "番組の削除", admin_program_path, method: :delete
+  = link_to "番組の編集", edit_admin_program_path
+  |  |
+  = link_to " 番組の削除", admin_program_path, method: :delete
   br
   br

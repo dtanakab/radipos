@@ -7,6 +7,17 @@
     = alert.html_safe if alert
   p#notice
     = notice.html_safe if notice
+  - unless current_user
+    .top_introduction_area
+      h2 Radiposで簡単にメールを送ろう！
+      .introduction_box
+        = image_tag ("1st_step.png")
+      .introduction_box
+        = image_tag ("2nd_step.png")
+      .introduction_box
+        = image_tag ("3rd_step.png")
+      .sign_up_button
+        = link_to "Radiposを使ってみる", new_user_registration_path
   h2
     | 人気おすすめ番組一覧
   = render "table", programs: @programs

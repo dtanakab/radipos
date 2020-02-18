@@ -40,6 +40,9 @@ group :development do
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "rubocop", require: false
+  gem "rubocop-performance"
+  gem "rubocop-rails"
+  gem "rubocop-minitest"
   gem "capistrano", "~> 3.11", require: false
   gem "capistrano-bundler"
   gem "capistrano-rails"
@@ -49,10 +52,11 @@ group :development do
   gem "bcrypt_pbkdf"
   gem "letter_opener_web"
   gem "letter_opener"
+  gem "slim_lint"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
-  gem 'seed_dump'
+  gem "seed_dump"
 end
 
 group :test do
@@ -65,7 +69,6 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "carrierwave"
 gem "devise"
 gem "kaminari"

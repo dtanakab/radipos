@@ -4,8 +4,7 @@ require "application_system_test_case"
 
 class PrivaciesTest < ApplicationSystemTestCase
   test "show privacy policy" do
-    visit root_path
-    click_on "プライバシーポリシー"
+    visit privacy_path
     assert_text "1 プライバシーポリシーの適用範囲"
   end
 end

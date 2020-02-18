@@ -62,3 +62,4 @@ yarn-debug.log*
 
 # Ignore uploaded files in development
 /db/seeds_backup.rb
+/db/fixtures/program_image/*

@@ -5,12 +5,16 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
     @user = User.find(params[:id])
   end
 
+  def create
+    super
+  end
+
   def show
     @user = User.confirm_by_token(params[:confirmation_token])
 
     if @user.errors.empty?
       sign_in(@user)
-      redirect_to root_path, flash: { notice: "Radiposアカウントが認証されました！" }
+      redirect_to edit_user_path(@user), flash: { notice: "Radiposアカウントが認証されました！ラジオネームを設定しましょう。" }
     else
       redirect_to root_path, flash: {
         notice: "メールアドレスの認証に失敗しました。恐れ入りますが、以下をお確かめください。<br>
@@ -20,15 +24,4 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
       }
     end
   end
-
-  # protected
-  # The path used after resending confirmation instructions.
-  # def after_resending_confirmation_instructions_path_for(resource_name)
-  #   super(resource_name)
-  # end
-
-  # The path used after confirmation.
-  # def after_confirmation_path_for(resource_name, resource)
-  #   super(resource_name, resource)
-  # end
 end

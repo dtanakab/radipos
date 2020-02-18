@@ -35,6 +35,10 @@ td {
   padding: 0 5px 7px;
 }
 
+h2 {
+  line-height: 1.3em;
+}
+
 .field,
 .actions {
   margin-bottom: 10px;
@@ -73,6 +77,13 @@ td {
   font-weight: bold;
 }
 
+#error_explanation ul {
+  list-style: square;
+  font-size: 12px;
+  margin-left: 25px;
+  padding: 0px;
+}
+
 #error_explanation ul li {
   list-style: square;
   font-size: 12px;
@@ -106,4 +117,8 @@ label {
 
 .back_link {
   margin: 0px 0px 15px 8px;
+}
+
+.text_center {
+  text-align: center;
 }

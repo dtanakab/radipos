@@ -5,6 +5,9 @@ require "supports/login_helper"
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include LoginHelper
-  include Warden::Test::Helpers
-  driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+  if ENV["HEADED"]
+    driven_by :selenium, using: :chrome
+  else
+    driven_by :selenium, using: :headless_chrome
+  end
 end

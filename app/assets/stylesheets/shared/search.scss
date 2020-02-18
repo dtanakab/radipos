@@ -26,15 +26,21 @@
   margin: auto auto 20px auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .word_search_input {
-  height: 30px;
-  width: 76%;
+  height: 35px;
+  width: 77%;
+  box-sizing: border-box;
   border-radius: 1px;
   border-right: none;
   font-size: 14px;
+  padding: 1px 8px;
+  &::placeholder {
+    position: relative;
+    left: 0em;
+    color: #aab7c4;
+  }
 }
 
 .timetable_area {
@@ -61,8 +67,9 @@
 
 .timetable_wday_select,
 .timetable_time_select {
-  height: 37px;
+  height: 35px;
   display: block;
+  box-sizing: border-box;
   background-color: white;
   font-size: 14px;
 }
@@ -77,11 +84,10 @@
 
 .word_search_button,
 .timetable_button {
-  width: 20%;
+  width: 23%;
   height: 35px;
   padding: 3px 0px;
   border-radius: 2px;
-  border-left: none;
   color: white;
 }
 

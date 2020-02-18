@@ -5,17 +5,14 @@ executors:
     docker:
       - image: circleci/ruby:2.6.5-node-browsers
         environment:
-          BUNDLE_JOBS: 3
-          BUNDLE_RETRY: 3
-          BUNDLE_PATH: vendor/bundle
-          PGHOST: 127.0.0.1
-          PGUSER: circleci-demo-ruby
           RAILS_ENV: test
+          TZ: "Asia/Tokyo"
       - image: circleci/postgres:11.5-alpine
         environment:
           POSTGRES_USER: circleci-demo-ruby
           POSTGRES_DB: db/test.sqlite3
           POSTGRES_PASSWORD: ""
+          TZ: "Asia/Tokyo"
 
 commands:
   restore_gems:
@@ -57,11 +54,33 @@ jobs:
           key: yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+
+      - run:
+          name: rubocop
+          command: |
+            bundle exec rubocop -c .rubocop.yml
+
+      - run:
+          name: Lint
+          command: |
+            bundle exec slim-lint app/views -c config/slim_lint.yml
+            bin/yarn eslint app/javascript
+
       - run:
           name: Database setup
           command: bin/rails db:schema:load --trace
       - store_test_results:
           path: test_results
+
+      - run:
+          name: Run Model Test
+          command: bin/rails test test/models
+      - run:
+          name: Run System Test
+          command: bin/rails test:system
+      - store_test_results:
+          path: test_results
+
   deploy:
     executor:
       name: default

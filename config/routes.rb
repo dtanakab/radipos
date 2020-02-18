@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :api, { format: "json" } do
+  namespace :api, format: "json" do
     resources :likes, only: [:index, :create, :destroy]
   end
   root to: "programs#index"
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, only: %i[index edit update destroy]
+    resources :users, only: %i[index]
     resources :programs do
       collection do
         resources :search_results, only: %i[index], controller: "programs/search_results"

@@ -10,7 +10,7 @@
     = link_to "(会員登録する)", new_user_registration_path
 
 .corner_form_box
-  = form_with(model: Post, url:posts_path, local: true) do |f|
+  = form_with(model: Post, url: posts_path, local: true) do |f|
     .post_column.post_corner_title
       = corner.title
     = f.label "メール件名（適宜ご変更ください）", class: "post_column"
@@ -20,11 +20,11 @@
     = f.label "投稿内容", class: "post_column"
     .post_field
       = f.text_area :content, rows: 12, placeholder: corner.introduction, class: "post_input"
-    
+
     - if current_user && current_user.radio_name != ""
       = f.label "ラジオメールへの情報記載設定：", class: "post_column"
       .post_field
-        = f.select :post_mail_setting, Post.post_mail_settings.keys.map {|k| [t("enums.user.post_mail_setting.#{k}"), k] }, selected: current_user.post_mail_setting
+        = f.select :post_mail_setting, Post.post_mail_settings.keys.map { |k| [t("enums.user.post_mail_setting.#{k}"), k] }, selected: current_user.post_mail_setting
 
       = f.hidden_field :corner_id, value: corner.id
       .post_field

@@ -12,9 +12,33 @@ class Admin::ProgramsTest < ApplicationSystemTestCase
     assert_no_text "テスト番組2"
   end
 
-  test "show program detail" do
+  test "create program" do
+    visit admin_programs_path
+    assert_difference("Program.count", 1) do
+      click_on "番組を新たに追加"
+      fill_in("program[title]", with: "追加した番組")
+      fill_in("program[memo]", with: "追加した番組の概要")
+      fill_in("program[email]", with: "mail@mail.com")
+      fill_in("program[on_air_wday_id]", with: 1)
+      attach_file "program[image]", "#{Rails.root}/test/fixtures/images/program.png"
+      click_on "登録する"
+    end
+  end
+
+  test "show detail and update program" do
     visit admin_programs_path
     click_on "テスト番組1"
-    assert_text "テスト番組1"
+    click_on "番組の編集"
+    fill_in("program[memo]", with: "変更した番組の概要")
+    click_on "更新する"
+    assert_text "変更した番組の概要"
+  end
+
+  test "destroy program" do
+    visit admin_program_path(programs(:program1))
+    assert_difference("Program.count", -1) do
+      click_on "番組の削除"
+      sleep(3)
+    end
   end
 end

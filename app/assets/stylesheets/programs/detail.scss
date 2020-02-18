@@ -81,7 +81,8 @@
   width: 94%;
   min-height: 40px;
   margin: auto;
-  padding: 1px;
+  box-sizing: border-box;
+  padding: 4px 8px;
   border: 1px solid;
   border-color: dimgray;
   border-radius: 3px;

@@ -5,4 +5,4 @@ h1 管理画面
     = "#{wday_str(@wday)} #{timeframe_str(@timeframe)}の番組"
   = render "admin/programs/table", programs: @programs if @programs.any?
   br
-  = link_to '番組を新たに追加', new_admin_program_path
+  = link_to "番組を新たに追加", new_admin_program_path
