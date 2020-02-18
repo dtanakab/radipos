@@ -1,4 +1,5 @@
 h2.posts_area_title
   | ラジオメール投稿
 - corners.each do |corner|
-  = render "posts/form", corner: corner
+  - if corner.alive_flag == 1
+    = render "posts/form", corner: corner

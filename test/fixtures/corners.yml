@@ -1,0 +1,23 @@
+corner1:
+  program: program1
+  title: テストコーナー1
+  subject: テストコーナー1
+  introduction: テストのコーナー1です
+  alive_flag: 1
+  unpostable_reason: nil
+
+corner2:
+  program: program1
+  title: テストコーナー2
+  subject: テストコーナー2
+  introduction: テストのコーナー2です
+  alive_flag: 1
+  unpostable_reason: nil
+
+corner3:
+  program: program1
+  title: テストコーナー3
+  subject: テストコーナー3
+  introduction: テストのコーナー3です
+  alive_flag: 0
+  unpostable_reason: nil

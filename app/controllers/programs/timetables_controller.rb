@@ -11,13 +11,14 @@ class Programs::TimetablesController < ApplicationController
     @programs.sort_by! { |program| program.starts_at.strftime("%H:%M") }
   end
 
-  def timetable_params
-    if params[:wday] && params[:timeframe]
-      @wday = params[:wday]
-      @timeframe = params[:timeframe].to_i
-    else
-      @wday = Date.today.wday.to_s
-      @timeframe = (Time.new.strftime("%k").to_i / 5) + 1
+  private
+    def timetable_params
+      if params[:wday] && params[:timeframe]
+        @wday = params[:wday]
+        @timeframe = params[:timeframe].to_i
+      else
+        @wday = Date.today.wday.to_s
+        @timeframe = (Time.new.strftime("%k").to_i / 5) + 1
+      end
     end
-  end
 end

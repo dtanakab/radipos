@@ -5,11 +5,6 @@ class UsersController < ApplicationController
   before_action :require_user_themselves
 
   def show
-    if @user.radio_name != ""
-      @temp_name = @user.radio_name
-    else
-      @temp_name = "ラジオネーム未設定"
-    end
   end
 
   def edit

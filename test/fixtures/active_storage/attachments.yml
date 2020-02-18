@@ -1,0 +1,4 @@
+program_picture:
+  name: image
+  record: program1(Program)
+  blob: program_picture_blob

@@ -1,0 +1,41 @@
+user1:
+  email: user1@test.com
+  radio_name: ユーザーテスト1
+  full_name: ラジオ大好きっ子
+  gender: "男性"
+  tel: 0120-111-111
+  postcode: 111-1111
+  address: 東京都港区1-1-1 港区マンション101号
+  about_age: 4 #20代後半
+  post_mail_setting: 0 #ラジオネームのみ
+  admin: false
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'testtest') %>
+  confirmed_at: <%= Time.now %>
+
+user2:
+  email: user2@test.com
+  radio_name: ユーザーテスト2
+  full_name: ラジオ大嫌い
+  gender: "男性"
+  tel: 0120-111-111
+  postcode: 111-1111
+  address: 東京都港区1-1-1 港区マンション101号
+  about_age: 6
+  post_mail_setting: 0
+  admin: false
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'testtest') %>
+  confirmed_at: <%= Time.now %>
+
+user3:
+  email: user3@test.com
+  radio_name: 管理者
+  full_name: 管理者太郎
+  gender: "男性"
+  tel: 0120-111-111
+  postcode: 111-1111
+  address: 東京都港区1-1-1 港区マンション101号
+  about_age: 6
+  post_mail_setting: 0
+  admin: true
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'testtest') %>
+  confirmed_at: <%= Time.now %>
