@@ -61,5 +61,5 @@ yarn-debug.log*
 .yarn-integrity
 
 # Ignore uploaded files in development
-/db/seeds_backup.rb
-/db/fixtures/program_image/*
+/storage/*
+!/storage/.keep
