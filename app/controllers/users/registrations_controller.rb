@@ -7,7 +7,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(sign_up_params)
-
     if @user.save
       expire_data_after_sign_in!
       redirect_to new_user_confirmation_path(id: @user.id)

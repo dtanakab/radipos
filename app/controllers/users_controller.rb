@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     end
 
     def require_user_themselves
-      unless @user == current_user
+      if @user != current_user
         redirect_to root_path, alert: "ユーザー本人のみマイページの確認が可能です"
       end
     end
