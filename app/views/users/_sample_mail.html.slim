@@ -22,8 +22,9 @@
       = user.radio_name
       - if user.age_and_gender? || user.account_information?
         | (
-        - if user.about_age && user.gender
-          = t("enums.user.about_age.#{user.about_age}") + user.gender
+        - if user.about_age
+          = t("enums.user.about_age.#{user.about_age}")
+        = display_on_mail(@user.gender)
         | )
       br
       br
@@ -34,20 +35,16 @@
         | --------------------------------------------------
         br
         | 〒
-        - if user.postcode
-          = user.postcode
+        = display_on_mail(@user.postcode)
         br
         | 住所：
-        - if user.address
-          = user.address
+        = display_on_mail(@user.address)
         br
         | 本名：
-        - if user.full_name
-          = user.full_name
+        = display_on_mail(@user.full_name)
         br
         | 電話番号：
-        - if user.tel
-          = user.tel
+        = display_on_mail(@user.tel)
         br
         | --------------------------------------------------
       br

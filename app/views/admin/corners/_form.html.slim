@@ -20,10 +20,7 @@
     = f.text_area :introduction, rows: 20, cols: 60
   .field
     = f.label "現在続いているコーナーか"
-    = f.number_field :alive_flag, min: 0, max: 1, value: 1
-  .field
-    = f.label "本サイトから投稿可能か"
-    = f.text_area :unpostable_reason, rows: 10, cols: 60
+    = f.check_box :alive, checked: true
 
     = f.hidden_field :program_id, value: corner.program.id
   .actions

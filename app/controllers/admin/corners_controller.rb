@@ -19,13 +19,6 @@ class Admin::CornersController < AdminController
     @corner = Corner.new(corner_params)
 
     if @corner.save
-      @programs = Program.where(title: @corner.program.title)
-      if @programs.size > 1
-        @programs.each do |program|
-          program.corners.new(corner_params)
-          program.save
-        end
-      end
       redirect_to admin_program_path(@corner.program), notice: "新しいコーナーが追加されました"
     else
       render :new
@@ -52,6 +45,6 @@ class Admin::CornersController < AdminController
     end
 
     def corner_params
-      params.require(:corner).permit(:title, :subject, :introduction, :alive_flag, :program_id, :unpostable_reason)
+      params.require(:corner).permit(:title, :subject, :introduction, :alive, :program_id)
     end
 end

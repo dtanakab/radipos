@@ -4,9 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   def create
     @post = current_user.posts.new(post_params)
-    if @post.subject.nil?
-      @post.subject = @post.corner.subject
-    end
+    @post.subject ||= @post.corner.subject
 
     if @post.save
       PostMailer.creation_email(@post).deliver_now

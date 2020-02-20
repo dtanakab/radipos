@@ -251,12 +251,16 @@ ja:
       user: ユーザ
   devise:
     confirmations:
-      confirmed: メールアドレスが確認できました。
+      confirmed: Radiposアカウントが認証されました！ラジオネームを設定しましょう。
       new:
         resend_confirmation_instructions: アカウント確認メール再送
       send_instructions: アカウントの有効化について数分以内にメールでご連絡します。
       send_paranoid_instructions: メールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。
     failure:
+      unconfirmed_message: "メールアドレスの認証に失敗しました。恐れ入りますが、次をお確かめください。
+        ・メールアドレス認証のメール送信から24時間以上が経過していないか
+        ・既にメールアドレス認証が済んでおり、ログイン画面からパスワードでのログインができないか
+        ・上記を確認した上で認証、ログインできない場合、異なるメールアドレスを用いて再度アカウントの作成をお願いいたします。"
       already_authenticated: すでにログインしています。
       inactive: アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。
       invalid: "%{authentication_keys}またはパスワードが違います。"

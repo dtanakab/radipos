@@ -7,14 +7,17 @@ class ProgramTest < ActiveSupport::TestCase
     assert_equal "03:05-13:30", programs(:program1).airtime
   end
 
-  test "set_regular_corner" do
-    programs(:program1).set_regular_corner
-    corner = programs(:program1).corners.last
-    assert_equal "ふつおた/テーマメール/リアクションメール", corner.subject
-  end
-
   test "search" do
     result = Program.search("テスト")
     assert_equal programs(:program1), result.first
+  end
+
+  test "on_timetable?" do
+    assert(programs(:program1).on_timetable?("1", 1))
+    assert_not(programs(:program1).on_timetable?("1", 2))
+  end
+
+  test "corner attached list" do
+    assert_equal(Program.corner_attached_list, [programs(:program1)])
   end
 end

@@ -4,8 +4,7 @@ class Admin::ProgramsController < AdminController
   before_action :set_program, only: [:show, :edit, :update, :destroy]
 
   def index
-    corner_attached_programs = Program.all.select { |program| program.corners.count >= 2 }
-    @programs = Kaminari.paginate_array(corner_attached_programs).page(params[:page])
+    @programs = Kaminari.paginate_array(Program.corner_attached_list).page(params[:page])
   end
 
   def show
@@ -21,10 +20,8 @@ class Admin::ProgramsController < AdminController
 
   def create
     @program = Program.new(program_params)
-
     if @program.save
-      @program.set_regular_corner
-      redirect_to admin_program_path(@program), notice: "Program was successfully created."
+      redirect_to admin_program_path(@program), notice: "新しく番組#{@program.title}が追加されました"
     else
       render :new
     end
@@ -32,7 +29,7 @@ class Admin::ProgramsController < AdminController
 
   def update
     if @program.update(program_params)
-      redirect_to admin_program_path(@program), notice: "Program was successfully updated."
+      redirect_to admin_program_path(@program), notice: "番組#{@program.title}が更新されました"
     else
       render :edit
     end
@@ -40,7 +37,7 @@ class Admin::ProgramsController < AdminController
 
   def destroy
     if @program.destroy
-      redirect_to admin_programs_path, notice: "Program was successfully destroyed."
+      redirect_to admin_programs_path, notice: "番組が削除されました"
     end
   end
 

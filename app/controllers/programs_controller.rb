@@ -4,8 +4,7 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: [:show]
 
   def index
-    corner_attached_programs = Program.all.select { |program| program.corners.count >= 2 }
-    @programs = Kaminari.paginate_array(corner_attached_programs).page(params[:page])
+    @programs = Kaminari.paginate_array(Program.corner_attached_list).page(params[:page])
   end
 
   def show
