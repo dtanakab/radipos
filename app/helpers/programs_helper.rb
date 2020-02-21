@@ -11,17 +11,17 @@ module ProgramsHelper
     wdays.keys[num.to_i]
   end
   def timeframe_str(num)
-    if num == 1
+    if num == "1"
       "深夜(00:00-04:59)"
     else
       timeframes.keys[num.to_i - 2]
     end
   end
   def today_wday
-    Date.today.wday
+    Date.today.wday.to_s
   end
   def now_timeframe
-    (Time.new.strftime("%k").to_i / 5) + 1
+    ((Time.new.strftime("%k").to_i / 5) + 1).to_s
   end
   def omit_words(item, count)
     if item.nil?

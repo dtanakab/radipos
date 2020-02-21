@@ -14,7 +14,7 @@ class Admin::Programs::TimetablesController < AdminController
 
   private
     def timetable_params
-      @wday ||= params[:wday] || today_wday.to_s
-      @timeframe ||= params[:timeframe].to_i || now_timeframe
+      @wday ||= params[:wday] || today_wday
+      @timeframe ||= params[:timeframe] || now_timeframe
     end
 end
