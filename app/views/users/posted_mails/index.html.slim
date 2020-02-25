@@ -10,10 +10,16 @@
         =link_to image_tag("blank_star_icon.png"), user_likes_path(current_user)
       .profile_tab.profile_tab_selected
         =link_to image_tag("sended_icon_selected.png"), user_posted_mails_path(current_user)
-  h2
-    | 投稿したメール(
-    = @posted_mails.size.to_s
-    | 件)
-  = paginate @posted_mails, position: "top"
-  = render "posts/table", posts: @posted_mails
-  = paginate @posted_mails, position: "bottom"
+  - if @posted_mails.empty?
+    p#notice
+      | 投稿したメールはまだありません。
+      br
+      | Radiposで投稿した自身のメール一覧を確認できます。
+  - else
+    h2
+      | 投稿したメール(
+      = @posted_mails.size.to_s
+      | 件)
+    = paginate @posted_mails, position: "top"
+    = render "posts/table", posts: @posted_mails
+    = paginate @posted_mails, position: "bottom"

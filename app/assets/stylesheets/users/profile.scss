@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 .profile_title {
-  margin-top: -5px;
+  margin-top: 0px;
 }
 .profile_title h2 {
   margin: 5px 0px;
@@ -25,17 +25,35 @@
   margin-bottom: 0px;
 }
 
+.profile_items {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile_item {
+  height: 30px;
+  line-height: 30px;
+}
+
 .profile_email {
   color: dimgray;
   font-weight: bold;
 }
 
+.profile_button {
+  height: 100%;
+}
+
 .profile_button a {
+  padding: 5px 10px;
+  max-width: 300px;
   display: block;
-  margin: 5px 0px;
-  padding: 5px 15px;
   background-color: #8f8f8f;
   border-radius: 5px;
+  line-height: 25px;
+  text-align: center;
   color: white;
   text-decoration: none;
+  font-weight: bold;
 }

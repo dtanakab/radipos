@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostMailer < ApplicationMailer
-  def creation_email(post)
+  def create(post)
     @post = post
     @user = User.find(post.user_id)
     @program = @post.corner.program

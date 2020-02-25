@@ -1,10 +1,5 @@
 = render "programs/search_results/search_bar"
 .contents
-  p#notice
-    = notice.html_safe if notice
-  - if @user.radio_name == ""
-    p#notice
-      | ラジオネームが未設定です！以下のラジオメール設定から登録/変更が可能です。
   =render "profile"
   br
   .tab_area
@@ -20,5 +15,3 @@
     h2
       | ラジオメールの設定
     = render "sample_mail", user: @user
-    .profile_edit_link
-      = link_to "ラジオメール設定/プロフィール情報を編集", edit_user_path

@@ -3,6 +3,10 @@
   line-height: 24px;
 }
 
+.program_title {
+  color: black;
+}
+
 .program_title,
 .radio_mail_title {
   margin: 5px 0px 10px 0px;
@@ -20,7 +24,7 @@
   display: flex;
   align-items: center;
   border-bottom: 0.6px dashed;
-  border-color: #b8860b;
+  border-color: dimgray;
 }
 
 .program_detail_column {
@@ -101,6 +105,7 @@
   width: 95%;
   margin: 20px 0px;
   border: none;
+  border-radius: 3px;
 }
 
 .dummy_button {

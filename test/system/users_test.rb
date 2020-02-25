@@ -13,7 +13,7 @@ class UsersTest < ApplicationSystemTestCase
 
   test "update profile" do
     visit "/users/#{users(:user1).id}"
-    click_on "ラジオメール設定/プロフィール情報を編集"
+    click_on "アカウント設定とプライバシー"
     select "住所/本名を含むアカウント情報全て"
     select "30代前半"
     click_on "設定・変更する"

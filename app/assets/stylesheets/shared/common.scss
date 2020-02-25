@@ -17,6 +17,9 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: #f3f3f3;
   color: dimgray;
 }
@@ -46,9 +49,15 @@ h2 {
 
 #notice {
   color: green;
+  margin: 5px 0px;
 }
 
 #alert {
+  color: #ff367f;
+}
+
+#flash_alert {
+  margin: -5px 8px 10px 8px;
   color: #ff367f;
 }
 
@@ -94,18 +103,38 @@ label {
 }
 
 .pagination {
-  margin-bottom: 15px;
+  height: 30px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  line-height: 20px;
   text-align: center;
 }
 
-.pagination span {
-  margin: 0px 2px;
-  font-weight: bold;
+.pagination_item {
+  width: 30px;
+  height: 30px;
+  margin: 0px 8px;
+  background-color: white;
+  line-height: 30px;  
+  border: solid 1px;
+  border-radius: 3px;
+}
+
+.current_page_item {
+  background-color: #0066cc;
+  border-color: #0066cc;
 }
 
 .pagination a {
-  margin: 0px 2px;
-  font-weight: normal;
+  display: block;
+  text-decoration: none;
+}
+
+.pagination span {
+  font-weight: bold;
+  color: white;
 }
 
 .contents {
@@ -113,6 +142,7 @@ label {
   max-width: 700px;
   margin: auto;
   padding-top: 5px;
+  flex-grow: 1;
 }
 
 .back_link {

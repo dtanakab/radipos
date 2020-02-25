@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @post.subject ||= @post.corner.subject
 
     if @post.save
-      PostMailer.creation_email(@post).deliver_now
+      PostMailer.create(@post).deliver_now
       redirect_to @post.corner.program, notice: "#{@post.corner.title}へメールが送信されました"
     else
       render "programs/#{@post.corner.program.id}/show"
