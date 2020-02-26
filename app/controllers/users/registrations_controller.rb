@@ -6,15 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    @user = User.new(sign_up_params)
-    if @user.save
-      expire_data_after_sign_in!
-      redirect_to new_user_confirmation_path(id: @user.id)
-    else
-      clean_up_passwords @user
-      set_minimum_password_length
-      respond_with @user
-    end
+    super
   end
 
   def edit
@@ -27,4 +19,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def destroy
     super
   end
+
+  protected
+    def after_inactive_sign_up_path_for(resource)
+      new_user_confirmation_path(id: @user.id)
+    end
 end

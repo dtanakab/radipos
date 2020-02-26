@@ -29,7 +29,7 @@ ja:
       user: ユーザ
   devise:
     confirmations:
-      confirmed: メールアドレスが確認できました。
+      confirmed: メールアドレスが確認できました。アカウント設定をお願いいたします。
       new:
         resend_confirmation_instructions: アカウント確認メール再送
       send_instructions: アカウントの有効化について数分以内にメールでご連絡します。

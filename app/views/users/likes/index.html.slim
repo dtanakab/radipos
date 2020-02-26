@@ -16,8 +16,8 @@
       | 番組表や検索結果から番組をマイリストに追加できます。
   - else
     h2
-    | マイリスト(
-    = @like_programs_all.size.to_s + "件)"
+      | マイリスト(
+      = @like_programs_all.size.to_s + "件)"
     = paginate @like_programs, position: "top"
     = render "programs/table", programs: @like_programs
     = paginate @like_programs, position: "bottom"

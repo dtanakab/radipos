@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: "programs#index"
   devise_for :users, controllers: {
     registrations: "users/registrations",
+    sessions: "users/sessions",
     confirmations: "users/confirmations",
   }
   resources :users, only: %i[show edit update] do
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
     collection do
       resources :search_results, only: %i[index], controller: "programs/search_results"
       resources :timetables, only: %i[index], controller: "programs/timetables"
+      resources :mylists, only: %i[index], controller: "programs/mylists"
+      resources :recommendations, only: %i[index], controller: "programs/recommendations"
     end
   end
 

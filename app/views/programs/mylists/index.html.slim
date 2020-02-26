@@ -1,0 +1,21 @@
+= render "programs/search_results/search_bar"
+
+.contents
+  p#alert
+    = alert.html_safe if alert
+  p#notice
+    = notice.html_safe if notice
+  .top_tabs
+    .top_tab.top_tab_selected
+      | マイリスト
+    .top_tab
+      = link_to "オススメ人気", recommendations_path
+  - if @like_programs.empty?
+    p#notice
+      | マイリストはまだありません。
+      br
+      | 番組表や検索結果から番組をマイリストに追加できます。
+  - else
+    = paginate @like_programs, position: "top"
+    = render "programs/table", programs: @like_programs
+    = paginate @like_programs, position: "bottom"

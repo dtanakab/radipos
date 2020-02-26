@@ -8,13 +8,13 @@ module ProgramsHelper
     { "朝(05:00-9:59)": 2, "昼(10:00-14:59)": 3, "夕(15:00-19:59)": 4, "夜(20:00-23:59)": 5, "深夜(00:00-04:59)": 1 }
   end
   def wday_str(num)
-    wdays.keys[num.to_i]
+    wdays.keys[num.to_i].to_s
   end
   def timeframe_str(num)
     if num == "1"
       "深夜(00:00-04:59)"
     else
-      timeframes.keys[num.to_i - 2]
+      timeframes.keys[num.to_i - 2].to_s
     end
   end
   def today_wday

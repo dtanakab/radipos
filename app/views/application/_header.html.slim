@@ -1,6 +1,11 @@
 .header
   .header_logo
-    = link_to image_tag("logo_transparent.png"), root_path
+    - if current_user && current_user.likes.any?
+      = link_to image_tag("logo_transparent.png"), mylists_path
+    - elsif current_user
+      = link_to image_tag("logo_transparent.png"), recommendations_path
+    - else
+      = link_to image_tag("logo_transparent.png"), root_path
   .header_menu
     - if current_user
       .header_link

@@ -11,6 +11,14 @@ class Users::SessionsController < Devise::SessionsController
 
   def destroy
     super
-    redirect_to root_path, notice: "ログアウトしました" if signed_out
   end
+
+  protected
+    def after_sign_in_path_for(resource)
+      if current_user.likes.any?
+        mylists_path
+      else
+        recommendations_path
+      end
+    end
 end

@@ -1,0 +1,15 @@
+= render "programs/search_results/search_bar"
+
+.contents
+  p#alert
+    = alert.html_safe if alert
+  p#notice
+    = notice.html_safe if notice
+  .top_tabs
+    .top_tab
+      = link_to "マイリスト", mylists_path
+    .top_tab.top_tab_selected
+      | オススメ人気
+  = paginate @programs, position: "top"
+  = render "programs/table", programs: @programs
+  = paginate @programs, position: "bottom"
