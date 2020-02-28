@@ -29,32 +29,32 @@
 
       .form_item
         strong
-          = f.label "本名"
+          = f.label "本名（任意）"
         = f.text_field :full_name, placeholder: "山田 太郎", size: "40", class: "form_input"
 
       .form_item
         strong
-          = f.label "年齢区分"
+          = f.label "年齢区分（任意）"
         = f.select :about_age, User.about_ages.keys.map { |k| [t("enums.user.about_age.#{k}"), k] }, prompt: "無回答", class: "form_input"
 
       .form_item
         strong
-          = f.label "性別"
+          = f.label "性別（任意）"
         = f.select :gender, ["男性", "女性"], prompt: "無回答", class: "form_input"
 
       .form_item
         strong
-          = f.label "電話番号"
+          = f.label "電話番号（任意）"
         = f.text_field :tel, placeholder: "090-1234-5678", size: "40", class: "form_input"
 
       .form_item
         strong
-          = f.label "郵便番号"
+          = f.label "郵便番号（任意）"
         = f.text_field :postcode, placeholder: "103-0027", size: "40", class: "form_input"
 
       .form_item
         strong
-          = f.label "住所"
+          = f.label "住所（任意）"
         = f.text_area :address, placeholder: "東京都中央区日本橋1-1-1 メゾン東京101号", rows: "5", size: "40", class: "form_input"
 
       .form_textbox
