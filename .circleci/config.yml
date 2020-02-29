@@ -81,6 +81,9 @@ jobs:
           name: Run Model Test
           command: bin/rails test test/models
       - run:
+          name: Run Helper Test
+          command: bin/rails test test/helpers
+      - run:
           name: Run System Test
           command: bin/rails test:system
       - store_test_results:

@@ -20,4 +20,9 @@ class ProgramTest < ActiveSupport::TestCase
   test "corner attached list" do
     assert_equal(Program.corner_attached_list, [programs(:program1)])
   end
+
+  test "count posts" do
+    assert_equal(programs(:program1).count_posts, 3)
+    assert_equal(programs(:program2).count_posts, 0)
+  end
 end

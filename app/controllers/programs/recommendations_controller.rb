@@ -3,6 +3,7 @@
 class Programs::RecommendationsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @programs = Kaminari.paginate_array(Program.corner_attached_list).page(params[:page])
+    @programs = Program.corner_attached_list.sort_by { |program| program.count_posts }.reverse
+    @programs = Kaminari.paginate_array(@programs).page(params[:page])
   end
 end
