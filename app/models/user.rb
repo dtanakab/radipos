@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :programs, through: :likes
 
   enum post_mail_setting: {
     radioname: 0,

@@ -17,7 +17,7 @@
   - else
     h2
       | マイリスト(
-      = @like_programs_all.size.to_s + "件)"
+      = @like_programs.size.to_s + "件)"
     = paginate @like_programs, position: "top"
     = render "programs/table", programs: @like_programs
     = paginate @like_programs, position: "bottom"
