@@ -4,7 +4,7 @@ class ProgramsController < ApplicationController
   before_action :set_program, only: [:show]
 
   def index
-    @programs = Program.corner_attached_list.sort_by { |program| program.count_posts }.reverse
+    @programs = Program.corner_attached_list.sort_by { |program| program.posts.count }.reverse
     @programs = Kaminari.paginate_array(@programs).page(params[:page])
   end
 

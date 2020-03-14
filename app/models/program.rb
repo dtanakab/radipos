@@ -3,6 +3,8 @@
 class Program < ApplicationRecord
   has_many :corners
   has_many :likes, dependent: :destroy
+  has_many :posts, through: :corners
+  has_many :users, through: :likes
   has_one_attached :image
   belongs_to :on_air_wday
 
@@ -20,11 +22,5 @@ class Program < ApplicationRecord
 
   def self.corner_attached_list
     Program.all.select { |program| program.corners.count >= 2 }
-  end
-
-  def count_posts
-    count = 0
-    corners.each { |corner| count += corner.posts.size } if corners
-    count
   end
 end

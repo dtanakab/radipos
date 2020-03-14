@@ -21,7 +21,7 @@ module ProgramsHelper
     Date.today.wday.to_s
   end
   def now_timeframe
-    ((Time.new.strftime("%k").to_i / 5) + 1).to_s
+    ((Time.now.strftime("%k").to_i / 5) + 1).to_s
   end
   def omit_words(item, count)
     if item.nil?
