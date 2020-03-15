@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user1, class: User do
-    id { 1 }
+    id { 9999 }
     email { "test1@example.com" }
     radio_name { "TEST1ラジオネーム" }
     gender { "男性" }
@@ -17,7 +17,6 @@ FactoryBot.define do
     confirmed_at { Time.now }
   end
   factory :user2, class: User do
-    id { 2 }
     email { "test2@example.com" }
     radio_name { "TEST2ラジオネーム" }
     gender { "男性" }
@@ -32,7 +31,6 @@ FactoryBot.define do
     confirmed_at { Time.now }
   end
   factory :user3, class: User do
-    id { 3 }
     email { "test3@example.com" }
     admin { false }
     password { "testtest" }
@@ -46,7 +44,6 @@ FactoryBot.define do
     encrypted_password { Devise::Encryptor.digest(User, "updateupdate") }
   end
   factory :admin, class: User do
-    id { 4 }
     email { "admin@example.com" }
     radio_name { "管理人ラジオネーム" }
     gender { "男性" }

@@ -6,8 +6,6 @@ RSpec.describe Program, type: :model do
   before do
     common_set_up
     @program1, @program2, @program3 = create(:program1), create(:program2), create(:program3)
-    @corner1, @corner2, @corner3, @corner4, @corner5 = create(:corner1), create(:corner2), create(:corner3), create(:corner4), create(:corner5)
-    @post1, @post2, @post3, @post4, @post5 = create(:post1), create(:post2), create(:post3), create(:post4), create(:post5)
   end
 
   describe "output program info" do
@@ -26,7 +24,7 @@ RSpec.describe Program, type: :model do
       expect(Program.search("太郎3")).to eq([@program3])
     end
     it "corner attached lists" do
-      expect(Program.corner_attached_list).to eq([@program1, @program2])
+      expect(Program.corner_attached_list.sort).to eq([@program1, @program3].sort)
     end
   end
 end

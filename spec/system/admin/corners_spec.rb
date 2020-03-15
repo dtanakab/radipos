@@ -6,7 +6,7 @@ RSpec.describe "Corner", type: :system do
   before do
     common_set_up
     @program1 = create(:program1)
-    @corner1, @corner2, @new_corner = create(:corner1), create(:corner2), build(:corner7)
+    @new_corner = build(:corner7)
     sign_in(@admin)
     visit "/admin/programs/#{@program1.id}"
   end

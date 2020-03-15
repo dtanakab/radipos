@@ -6,7 +6,6 @@ RSpec.describe "Corner", type: :system do
   before do
     common_set_up
     @program1 = create(:program1)
-    create(:corner1)
   end
 
   it "show corner" do

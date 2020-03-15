@@ -12,12 +12,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_054005) do
+ActiveRecord::Schema.define(version: 2020_03_15_081926) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -38,16 +41,16 @@ ActiveRecord::Schema.define(version: 2020_02_20_054005) do
     t.string "title"
     t.string "subject"
     t.text "introduction"
-    t.boolean "alive", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "program_id"
+    t.bigint "program_id"
+    t.boolean "alive", default: true
     t.index ["program_id"], name: "index_corners_on_program_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "program_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "program_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["program_id"], name: "index_likes_on_program_id"
@@ -64,8 +67,8 @@ ActiveRecord::Schema.define(version: 2020_02_20_054005) do
   create_table "posts", force: :cascade do |t|
     t.string "subject"
     t.text "content"
-    t.integer "corner_id"
-    t.integer "user_id"
+    t.bigint "corner_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "post_mail_setting"
@@ -84,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_054005) do
     t.time "starts_at"
     t.time "ends_at"
     t.string "hp"
-    t.integer "on_air_wday_id"
+    t.bigint "on_air_wday_id"
     t.integer "timeframe"
     t.index ["on_air_wday_id"], name: "index_programs_on_on_air_wday_id"
   end
@@ -107,9 +110,9 @@ ActiveRecord::Schema.define(version: 2020_02_20_054005) do
     t.string "unconfirmed_email"
     t.string "gender"
     t.string "tel"
-    t.integer "about_age"
-    t.integer "post_mail_setting"
+    t.string "about_age"
     t.boolean "admin", default: false
+    t.integer "post_mail_setting"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

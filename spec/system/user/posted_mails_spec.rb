@@ -7,8 +7,6 @@ RSpec.describe "PostedMails", type: :system do
     common_set_up
     sign_in(@user1)
     @program1 = create(:program1)
-    @corner1, @corner2 = create(:corner1), create(:corner2)
-    @post1, @post2 = create(:post1), create(:post2)
   end
 
   it "show posted_mails" do

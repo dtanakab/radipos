@@ -2,6 +2,7 @@
 
 class ChangeDefaultToUsers < ActiveRecord::Migration[6.0]
   def change
-    change_column :users, :post_mail_setting, :integer, defalut: 0
+    remove_column :users, :post_mail_setting, :string, default: false
+    add_column :users, :post_mail_setting, :integer, defalut: 0
   end
 end
