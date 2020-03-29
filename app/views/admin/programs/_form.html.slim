@@ -28,9 +28,9 @@
     = f.number_field :on_air_wday_id
   .field
     = f.label "放送時刻"
-    = f.time_select :starts_at, time_separator: "：", minute_step: 15
+    = f.time_select :starts_at, time_separator: "：", minute_step: 5
     | ~
-    = f.time_select :ends_at, time_separator: "：", minute_step: 15
+    = f.time_select :ends_at, time_separator: "：", minute_step: 5
   .field
     = f.label "番組ホームページ"
     = f.text_field :hp
