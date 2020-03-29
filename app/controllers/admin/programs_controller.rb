@@ -47,6 +47,6 @@ class Admin::ProgramsController < AdminController
     end
 
     def program_params
-      params.require(:program).permit(:title, :memo, :email, :cast, :station, :starts_at, :ends_at, :hp, :image, :on_air_wday_id)
+      params.require(:program).permit(:title, :memo, :email, :cast, :station, :starts_at, :ends_at, :hp, :image, :on_air_wday_id, :timeframe)
     end
 end

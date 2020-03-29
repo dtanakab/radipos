@@ -32,6 +32,10 @@
     | ~
     = f.time_select :ends_at, time_separator: "：", minute_step: 5
   .field
+    = f.label "時刻枠"
+    | 深夜(00:00-04:59): 1, 朝(05:00-9:59): 2, 昼(10:00-14:59): 3, 夕(15:00-19:59): 4, 夜(20:00-23:59): 5
+    = f.number_field :timeframe
+  .field
     = f.label "番組ホームページ"
     = f.text_field :hp
   .field
