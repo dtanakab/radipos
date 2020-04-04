@@ -2,7 +2,6 @@
 
 FactoryBot.define do
   factory :program1, class: Program do
-    id { 1 }
     title { "TEST番組1" }
     memo { "TEST番組1が始まります" }
     email { "test1@radio.com" }
@@ -14,9 +13,13 @@ FactoryBot.define do
     timeframe { 1 }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, "spec/fixtures/files/test.jpg")) }
     on_air_wday_id { 1 }
+    after(:create) do |program|
+      program.corners << FactoryBot.create(:corner1, program: program)
+      program.corners << FactoryBot.create(:corner2, program: program)
+      program.likes << FactoryBot.create(:like1, program: program)
+    end
   end
   factory :program2, class: Program do
-    id { 2 }
     title { "TEST番組2" }
     memo { "TEST番組2が始まります" }
     email { "test2@radio.com" }
@@ -28,9 +31,12 @@ FactoryBot.define do
     timeframe { 2 }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, "spec/fixtures/files/test.jpg")) }
     on_air_wday_id { 2 }
+    after(:create) do |program|
+      program.corners << FactoryBot.create(:corner3, program: program)
+      program.likes << FactoryBot.create(:like2, program: program)
+    end
   end
   factory :program3, class: Program do
-    id { 3 }
     title { "TEST番組3" }
     memo { "TEST番組3が始まります" }
     email { "test3@radio.com" }
@@ -42,9 +48,12 @@ FactoryBot.define do
     timeframe { 1 }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, "spec/fixtures/files/test.jpg")) }
     on_air_wday_id { 1 }
+    after(:create) do |program|
+      program.corners << FactoryBot.create(:corner5, program: program)
+      program.corners << FactoryBot.create(:corner6, program: program)
+    end
   end
   factory :program4, class: Program do
-    id { 4 }
     title { "TEST番組4" }
     memo { "TEST番組4が始まります" }
     email { "test4@radio.com" }

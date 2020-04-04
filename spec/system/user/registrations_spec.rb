@@ -11,6 +11,7 @@ RSpec.describe "Registrations", type: :system do
 
   it "create user" do
     visit "/users/sign_up"
+    sleep 3
     fill_in "user_email", with: @user2.email
     fill_in "user_password", with: @user2.password
     fill_in "user_password_confirmation", with: @user2.password

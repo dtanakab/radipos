@@ -6,7 +6,6 @@ RSpec.describe "Program", type: :system do
   before do
     common_set_up
     @program1 = create(:program1)
-    @corner1, @corner2 = create(:corner1), create(:corner2)
   end
 
   it "show service top page" do
