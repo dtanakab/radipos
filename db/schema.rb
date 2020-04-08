@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_054005) do
+ActiveRecord::Schema.define(version: 2020_04_08_004954) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_054005) do
     t.string "hp"
     t.integer "on_air_wday_id"
     t.integer "timeframe"
+    t.boolean "on_timetable", default: true
     t.index ["on_air_wday_id"], name: "index_programs_on_on_air_wday_id"
   end
 
