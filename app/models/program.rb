@@ -17,7 +17,7 @@ class Program < ApplicationRecord
   end
 
   def on_timetable?(target_wday, target_timeframe)
-    on_air_wday.code.include?(target_wday) && timeframe == target_timeframe.to_i
+    on_timetable == true && on_air_wday.code.include?(target_wday) && timeframe == target_timeframe.to_i
   end
 
   def self.corner_attached_list

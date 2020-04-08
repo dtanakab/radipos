@@ -10,6 +10,8 @@ table.program_table
             .program_card_info
               = program.station
               .program_card_datetime.program_card_airtime
+                - if program.on_timetable == false
+                  = "【現在放送中止, 不定期放送】"
                 = program.on_air_wday.display_str + " "
                 = program.airtime
           - if current_user
