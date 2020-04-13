@@ -15,8 +15,10 @@
       = corner.title
     = f.label "メール件名（適宜ご変更ください）", class: "post_column"
     .post_field
-      = f.text_field :subject, value: corner.subject, size: 60, class: "post_input"
-
+      - if corner.subject == ""
+        = f.text_field :subject, placeholder: "ふつおた/テーマメール/リアクションメール", size: 60, class: "post_input"
+      - else
+        = f.text_field :subject, value: corner.subject, size: 60, class: "post_input"
     = f.label "投稿内容", class: "post_column"
     .post_field
       = f.text_area :content, rows: 12, placeholder: corner.introduction, class: "post_input"
